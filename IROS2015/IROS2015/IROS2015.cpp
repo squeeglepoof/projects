@@ -24,7 +24,8 @@
 #include <stdlib.h>
 
 // Project-specific includes
-#include "../../../libraries/Simulation/SimNE.h"
+//#include "../../../libraries/Simulation/SimNE.h"
+#include "../../../libraries/Simulation/SimTypeNE.h"
 #include "../../../libraries/Domains/ATFMSectorDomain/ATFMSectorDomain.h"
 
 // for memory leak detection
@@ -36,7 +37,7 @@
 void program(int calls){
 	srand(time(NULL));
 	ATFMSectorDomain* domain = new ATFMSectorDomain();
-	SimNE sim = SimNE(domain);
+	SimTypeNE sim(domain, SimTypeNE::MULTIMIND);
 	sim.runExperiment();
 
 	sim.outputRewardLog("stat_results/reward-"+to_string(calls)+".txt");

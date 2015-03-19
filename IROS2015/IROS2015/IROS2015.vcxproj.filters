@@ -51,6 +51,21 @@
     <ClInclude Include="..\..\..\libraries\FileIO\easyio\easyio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Simulation\SimTypeNE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Simulation\SimNE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeWeighted.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeCrossweighted.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -84,6 +99,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\libraries\FileIO\easyio\easyio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Simulation\SimTypeNE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Simulation\SimNE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeWeighted.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeCrossweighted.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
