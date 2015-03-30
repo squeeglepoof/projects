@@ -37,7 +37,7 @@
 void program(int calls){
 	srand(time(NULL));
 	ATFMSectorDomain* domain = new ATFMSectorDomain();
-	SimTypeNE sim(domain, MultiagentTypeNE::MULTIMIND);
+	SimTypeNE sim(domain, MultiagentTypeNE::WEIGHTED);
 	sim.runExperiment();
 
 	sim.outputRewardLog("stat_results/reward-"+to_string(calls)+".txt");
