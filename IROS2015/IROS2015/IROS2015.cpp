@@ -40,17 +40,42 @@ void program(int calls){
 	SimTypeNE sim(domain, MultiagentTypeNE::WEIGHTED);
 	sim.runExperiment();
 
-	sim.outputRewardLog("stat_results/reward-"+to_string(calls)+".txt");
-	sim.outputMetricLog("stat_results/conflictlog-"+to_string(calls)+".txt");
+	sim.outputRewardLog("stat_results/weighted_reward-"+to_string(calls)+".txt");
+	sim.outputMetricLog("stat_results/weighted_conflictlog-"+to_string(calls)+".txt");
+	delete ((ATFMSectorDomain*)domain);
+}
+
+void program2(int calls){
+	srand(time(NULL));
+	ATFMSectorDomain* domain = new ATFMSectorDomain();
+	SimTypeNE sim(domain, MultiagentTypeNE::CROSSWEIGHTED);
+	sim.runExperiment();
+
+	sim.outputRewardLog("stat_results/crossweighted_reward-"+to_string(calls)+".txt");
+	sim.outputMetricLog("stat_results/crossweighted_conflictlog-"+to_string(calls)+".txt");
+	delete ((ATFMSectorDomain*)domain);
+}
+
+void program3(int calls){
+	srand(time(NULL));
+	ATFMSectorDomain* domain = new ATFMSectorDomain();
+	SimTypeNE sim(domain, MultiagentTypeNE::MULTIMIND);
+	sim.runExperiment();
+
+	sim.outputRewardLog("stat_results/multimind_reward-"+to_string(calls)+".txt");
+	sim.outputMetricLog("stat_results/multimind_conflictlog-"+to_string(calls)+".txt");
 	delete ((ATFMSectorDomain*)domain);
 }
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	for (int i=0; i<1; i++){
+	int i=0;
+	//for (int i=0; i<5; i++){
 		printf("************* RUN %i STARTING ***********\n",i);
-		program(i);
-	}
+		//program(i);
+		program2(i);
+		//program3(i);
+	//}
 //	_CrtDumpMemoryLeaks(); // memory leak checking
 	system("pause");
 	return 0;
