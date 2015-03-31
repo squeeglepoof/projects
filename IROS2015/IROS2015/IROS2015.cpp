@@ -18,6 +18,9 @@
 //#pragma warning(push) 
 //#pragma warning(disable:4996) 
 
+// Parallelization
+#include <omp.h>
+
 // Standard includes
 #include "stdafx.h"
 #include <stdio.h>
@@ -34,49 +37,43 @@
 #include <crtdbg.h>
 
 
-void program(int calls){
+std::string rwd_names[MultiagentTypeNE::TypeHandling::NMODES] = {
+	"stat_results/weighted_reward-",
+	"stat_results/crossweighted_reward-",
+	"stat_results/multimind_reward-",
+	"stat_results/blind_reward-"
+};
+
+std::string conflict_names[MultiagentTypeNE::TypeHandling::NMODES] = {
+	"stat_results/weighted_conflict-",
+	"stat_results/crossweighted_conflict-",
+	"stat_results/multimind_conflict-",
+	"stat_results/blind_conflict-"
+};
+
+
+void program(int calls, MultiagentTypeNE::TypeHandling sim_mode, std::string rwd_name, std::string conflict_name){
 	srand(time(NULL));
 	ATFMSectorDomain* domain = new ATFMSectorDomain();
-	SimTypeNE sim(domain, MultiagentTypeNE::WEIGHTED);
+	SimTypeNE sim(domain, sim_mode);
 	sim.runExperiment();
 
-	sim.outputRewardLog("stat_results/weighted_reward-"+to_string(calls)+".txt");
-	sim.outputMetricLog("stat_results/weighted_conflictlog-"+to_string(calls)+".txt");
-	delete ((ATFMSectorDomain*)domain);
-}
-
-void program2(int calls){
-	srand(time(NULL));
-	ATFMSectorDomain* domain = new ATFMSectorDomain();
-	SimTypeNE sim(domain, MultiagentTypeNE::CROSSWEIGHTED);
-	sim.runExperiment();
-
-	sim.outputRewardLog("stat_results/crossweighted_reward-"+to_string(calls)+".txt");
-	sim.outputMetricLog("stat_results/crossweighted_conflictlog-"+to_string(calls)+".txt");
-	delete ((ATFMSectorDomain*)domain);
-}
-
-void program3(int calls){
-	srand(time(NULL));
-	ATFMSectorDomain* domain = new ATFMSectorDomain();
-	SimTypeNE sim(domain, MultiagentTypeNE::MULTIMIND);
-	sim.runExperiment();
-
-	sim.outputRewardLog("stat_results/multimind_reward-"+to_string(calls)+".txt");
-	sim.outputMetricLog("stat_results/multimind_conflictlog-"+to_string(calls)+".txt");
+	sim.outputRewardLog(rwd_name+to_string(calls)+".txt");
+	sim.outputMetricLog(conflict_name+to_string(calls)+".txt");
 	delete ((ATFMSectorDomain*)domain);
 }
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	int i=0;
-	//for (int i=0; i<5; i++){
-		printf("************* RUN %i STARTING ***********\n",i);
-		//program(i);
-		program2(i);
-		//program3(i);
-	//}
-//	_CrtDumpMemoryLeaks(); // memory leak checking
+	for (int r=0; r<5; r++){
+		printf("************* RUN %i STARTING ***********\n",r);
+#pragma omp parallel for
+		for (int i=0; i<MultiagentTypeNE::NMODES; i++){
+			printf("mode type %i started. ", i);
+			program(r,MultiagentTypeNE::TypeHandling(i), rwd_names[i], conflict_names[i]);
+		}
+	}
+	//	_CrtDumpMemoryLeaks(); // memory leak checking
 	system("pause");
 	return 0;
 }

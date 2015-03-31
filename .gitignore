@@ -45,3 +45,5 @@ Temporary Items
 *.obj
 *.tlog
 *.sdf
+*.csv
+*.txt
