@@ -47,12 +47,13 @@ void program(int calls, MultiagentTypeNE::TypeHandling sim_mode, std::string rwd
 	MultiagentNE* MAS = new MultiagentNE(domain->n_agents, NE_params);
 	// END FOR DEBUGGING
 
-	SimTypeNE sim(domain, sim_mode); // FOR DEBUGGING
+	SimTypeNE sim(domain, MAS, sim_mode); // FOR DEBUGGING
 	sim.runExperiment();
 
 	sim.outputRewardLog(rwd_name+to_string(calls)+".txt");
 	sim.outputMetricLog(conflict_name+to_string(calls)+".txt");
 	delete ((ATFMSectorDomain*)domain);
+
 }
 
 void metaprog(){
@@ -70,16 +71,14 @@ std::string conflict_names[MultiagentTypeNE::TypeHandling::NMODES] = {
 	"stat_results/blind_conflict-"
 };
 
-	//for (int r=0; r<5; r++){
-	int r = 0;
+	for (int r=0; r<5; r++){
 		printf("************* RUN %i STARTING ***********\n",r);
-		int i=0;
-//#pragma omp parallel for
-	//	for (int i=0; i<MultiagentTypeNE::NMODES; i++){
+	#pragma omp parallel for
+		for (int i=0; i<MultiagentTypeNE::NMODES; i++){
 			printf("mode type %i started. ", i);
 			program(r,MultiagentTypeNE::TypeHandling(i), rwd_names[i], conflict_names[i]);
-		//}
-	//}
+		}
+	}
 
 }
 
