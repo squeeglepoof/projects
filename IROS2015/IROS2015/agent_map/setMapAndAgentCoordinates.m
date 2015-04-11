@@ -166,9 +166,9 @@ end
 
 hold on
 %LineSpec('m', 'LineWidth', 4);
-gplot(connections,agent_map)
-%h=findobj('type','line');
-%set(h,'linewidth',4)
+gplot(connections,agent_map, 'm')
+h=findobj('type','line');
+set(h,'linewidth',4)
 csvwrite('connections.csv',connections);
 
 %% Create fixes in space
@@ -209,13 +209,28 @@ for i=1:2:size(Path0,1)
    scatter(Path0(i+1,:)+1,Path0(i,:)+1);
 end
 
+%%
 figure(2)
-Path50 = csvread('path-50.csv');
+Path50 = csvread('trace.csv');
 imshow(obstacle_map)
 for i=1:2:size(Path50,1)
    hold on
    scatter(Path50(i+1,:)+1,Path50(i,:)+1);
 end
+
+%%
+
+Path50 = csvread('trace.csv');
+startx = [];
+starty = [];
+for i=1:2:size(Path50,1)
+   startx = [startx; Path50(i+1,1)+1];
+   starty = [starty; Path50(i,1)+1];
+end
+
+starts = [startx starty]
+
+
 %%
 
 figure(3)

@@ -71,14 +71,16 @@ std::string conflict_names[MultiagentTypeNE::TypeHandling::NMODES] = {
 	"stat_results/blind_conflict-"
 };
 
-	for (int r=0; r<5; r++){
+	//for (int r=0; r<5; r++){
+int r=0;
 		printf("************* RUN %i STARTING ***********\n",r);
-	#pragma omp parallel for
-		for (int i=0; i<MultiagentTypeNE::NMODES; i++){
+	//#pragma omp parallel for
+		int i=0;
+		//for (int i=0; i<MultiagentTypeNE::NMODES; i++){
 			printf("mode type %i started. ", i);
 			program(r,MultiagentTypeNE::TypeHandling(i), rwd_names[i], conflict_names[i]);
-		}
-	}
+		//}
+	//}
 
 }
 
