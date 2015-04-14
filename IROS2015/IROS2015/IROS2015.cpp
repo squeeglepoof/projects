@@ -58,29 +58,26 @@ void program(int calls, MultiagentTypeNE::TypeHandling sim_mode, std::string rwd
 
 void metaprog(){
 std::string rwd_names[MultiagentTypeNE::TypeHandling::NMODES] = {
+	"stat_results/blind_reward-"
 	"stat_results/weighted_reward-",
 	"stat_results/crossweighted_reward-",
 	"stat_results/multimind_reward-",
-	"stat_results/blind_reward-"
 };
 
 std::string conflict_names[MultiagentTypeNE::TypeHandling::NMODES] = {
+	"stat_results/blind_conflict-"
 	"stat_results/weighted_conflict-",
 	"stat_results/crossweighted_conflict-",
 	"stat_results/multimind_conflict-",
-	"stat_results/blind_conflict-"
 };
 
-	//for (int r=0; r<5; r++){
-int r=0;
+	for (int r=0; r<5; r++){
 		printf("************* RUN %i STARTING ***********\n",r);
-	//#pragma omp parallel for
-		int i=0;
-		//for (int i=0; i<MultiagentTypeNE::NMODES; i++){
+		for (int i=0; i<MultiagentTypeNE::NMODES; i++){
 			printf("mode type %i started. ", i);
 			program(r,MultiagentTypeNE::TypeHandling(i), rwd_names[i], conflict_names[i]);
-		//}
-	//}
+		}
+	}
 
 }
 
