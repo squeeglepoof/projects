@@ -67,6 +67,23 @@
       <ProjName>IROS2015</ProjName>
     </ProjBinary>
   </Binaries>
+  <Reports>
+    <Report>
+      <Path>IROS2015150420.vsp</Path>
+    </Report>
+    <Report>
+      <Path>IROS2015150420(1).vsp</Path>
+    </Report>
+    <Report>
+      <Path>IROS2015150420(2).vsp</Path>
+    </Report>
+    <Report>
+      <Path>IROS2015150420(3).vsp</Path>
+    </Report>
+    <Report>
+      <Path>IROS2015150420(4).vsp</Path>
+    </Report>
+  </Reports>
   <Launches>
     <ProjBinary>
       <Path>:PB:{F8C6B564-EB6D-4FAF-91FA-221118641C2E}|IROS2015\IROS2015.vcxproj</Path>
