@@ -44,7 +44,8 @@ void program(int calls, MultiagentTypeNE::TypeHandling sim_mode, std::string rwd
 	
 
 	NeuroEvoParameters* NE_params = new NeuroEvoParameters(domain->n_state_elements,domain->n_control_elements);
-	MultiagentNE* MAS = new MultiagentNE(domain->n_agents, NE_params);
+	//new MultiagentTypeNE(n_agents,NE_params,type_mode,n_types);
+	MultiagentTypeNE* MAS = new MultiagentTypeNE(domain->n_agents, NE_params, sim_mode,domain->n_types);
 	// END FOR DEBUGGING
 
 	SimTypeNE sim(domain, MAS, sim_mode); // FOR DEBUGGING
@@ -73,9 +74,10 @@ std::string conflict_names[MultiagentTypeNE::TypeHandling::NMODES] = {
 
 	for (int r=0; r<5; r++){
 		printf("************* RUN %i STARTING ***********\n",r);
-#pragma omp parallel for
+//#pragma omp parallel for
 		for (int i=0; i<MultiagentTypeNE::NMODES; i++){
-			if (i==MultiagentTypeNE::WEIGHTED || i==MultiagentTypeNE::MULTIMIND) continue;
+			//if (i==MultiagentTypeNE::WEIGHTED || i==MultiagentTypeNE::MULTIMIND || i==MultiagentTypeNE::BLIND) continue;
+			if (i==MultiagentTypeNE::BLIND) continue;
 			printf("mode type %i started. ", i);
 			program(r,MultiagentTypeNE::TypeHandling(i), rwd_names[i], conflict_names[i]);
 		}
