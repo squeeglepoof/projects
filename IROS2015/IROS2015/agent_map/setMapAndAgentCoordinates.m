@@ -253,18 +253,27 @@ end
 
 connected = zeros(size(obstacle_map));
 
-x1 = size(edges,1);
-y1 = size(edges,1);
-x2 = size(edges,1);
-y2 = size(edges,1);
+%%
 
+x1 = zeros(size(edges,1),1);
+y1 = zeros(size(edges,1),1);
+%x2 = zeros(size(edges,1),1);
+%y2 = zeros(size(edges,1),1);
+
+%%
 for i=1:size(edges,1)
     [xtemp ytemp] = ind2sub(size(obstacle_map),edges(i,1));
     x1(i) = xtemp;
     y1(i) = ytemp;
-    [xtemp ytemp] = ind2sub(size(obstacle_map),edges(i,2));
-    x2(i) = xtemp;
-    y2(i) = ytemp;
+%    [xtemp ytemp] = ind2sub(size(obstacle_map),edges(i,2));
+%    x2(i) = xtemp;
+%    y2(i) = ytemp;
 end
 
 
+%%
+
+obst_check = [];
+for i=1:size(x1,1)
+   obst_check = [obst_check; obstacle_map(y1(i),x1(i))]; 
+end
