@@ -18,6 +18,8 @@ obstacle_map = obstacle_map./(max(max(obstacle_map)));
 obstacle_map = obstacle_map.*255;
 obstacle_map = uint8(obstacle_map);
 
+obstacle_map = imfill(obstacle_map);
+
 figure(1)
 imshow(obstacle_map1)
 
@@ -73,6 +75,11 @@ csvwrite('membership_map.csv',membership-1);
 imshow(membermap)
 hold on
 scatter(agent_map(:,1),agent_map(:,2));
+
+%% Maybe pick memberships differently here?
+
+
+
 %%
 % obstacle_map1 = imread('SF_southofmarket.png');
 %obstacle_map1 = im2double(obstacle_map)
@@ -240,3 +247,24 @@ for i=1:2:size(trace50,1)
    hold on
    scatter(trace50(i+1,:)+1,trace50(i,:)+1);
 end
+
+
+%%
+
+connected = zeros(size(obstacle_map));
+
+x1 = size(edges,1);
+y1 = size(edges,1);
+x2 = size(edges,1);
+y2 = size(edges,1);
+
+for i=1:size(edges,1)
+    [xtemp ytemp] = ind2sub(size(obstacle_map),edges(i,1));
+    x1(i) = xtemp;
+    y1(i) = ytemp;
+    [xtemp ytemp] = ind2sub(size(obstacle_map),edges(i,2));
+    x2(i) = xtemp;
+    y2(i) = ytemp;
+end
+
+
