@@ -83,6 +83,12 @@ int sub2ind(int r, int c, int m, int n){
 	return (c-1)*m+r;
 }
 
+void ind2sub(int cols, int ind, int &r, int &c){
+	//0-indexed: ind-1 always called
+	r = (ind-1)%cols;
+	c = floor((ind-1)/cols);
+}
+
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -105,17 +111,29 @@ int _tmain(int argc, _TCHAR* argv[])
 	int YDIM = obstacles[0].size();
 	for (int x=0; x<XDIM; x++){
 		for (int y=0; y<YDIM; y++){
-			vector<XY> neighbors = get8GridNeighbors(x,y, &obstacles);
-			for (int i=0; i<neighbors.size(); i++){
-				matrix1d edge(2); // edge is 1-indexed (matlab interfacing...)
-				edge[0] = sub2ind(x,y,YDIM,XDIM);
-				edge[1] = sub2ind(neighbors[i].x,neighbors[i].y,YDIM,XDIM);
-				edge_array.push_back(edge);
+			if (!obstacles[x][y]){
+				vector<XY> neighbors = get8GridNeighbors(x,y, &obstacles);
+				for (int i=0; i<neighbors.size(); i++){
+					matrix1d edge(2); // edge is 1-indexed (matlab interfacing...)
+					edge[0] = sub2ind(x,y,YDIM,XDIM);
+					edge[1] = sub2ind(neighbors[i].x,neighbors[i].y,YDIM,XDIM);
+					edge_array.push_back(edge);
+				}
 			}
 		}
 	}
 
-	PrintOut::toFile2D(edge_array,"edges.csv");
+	/*PrintOut::toFile2D(edge_array,"edges.csv");
+	
+	for (int i=0; i<edge_array.size(); i++){
+		int r, c;
+		ind2sub(256, edge_array[i][0], r,c);
+		if (obstacles[r][c]>0){
+			printf("Fail! %i,%i",r,c);
+			system("pause");
+			exit(1);
+		}
+	}*/
 
 
 	system("pause");

@@ -275,5 +275,5 @@ end
 
 obst_check = [];
 for i=1:size(x1,1)
-   obst_check = [obst_check; obstacle_map(y1(i),x1(i))]; 
+   obst_check = [obst_check; obstacle_map(x1(i),y1(i))]; 
 end
