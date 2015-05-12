@@ -30,7 +30,10 @@
     <ClInclude Include="..\..\..\libraries\Planning\AStar_easy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AStar_grid.h">
+    <ClInclude Include="..\..\..\libraries\Planning\AStar_grid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,7 +50,7 @@
     <ClCompile Include="..\..\..\libraries\Planning\AStar_easy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AStar_grid.cpp">
+    <ClCompile Include="..\..\..\libraries\Planning\AStar_grid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

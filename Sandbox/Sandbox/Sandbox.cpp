@@ -5,34 +5,80 @@
 #include <algorithm>
 
 #include "../../libraries/FileIO/easyio/easyio.h"
-#include "AStar_grid.h"
+#include "../../libraries/Planning/AStar_grid.h"
+#include "Matrix.h"
+
+
+typedef std::map<int,std::map<int,AStar_grid*> > grid_lookup;
+
+
+grid_lookup getMasks(Matrix<bool,2> *obstacle_map, Matrix<bool,2> *connection_map, Matrix<int,2> *membership_map){
+	grid_lookup m2astar;
+	for (int i=0; i<connection_map->dim1(); i++){
+		for (int j=0; j<connection_map->dim2(); j++){
+			if ((*connection_map)(i,j)>0){
+				m2astar[i][j] = new AStar_grid(obstacle_map,membership_map,i,j);
+			}
+		}
+	}
+	return m2astar;
+}
+
 
 int main (int argc, char const *argv[]){
+
 
 	matrix2d m = FileManip::readDouble("C:/Users/Carrie/Documents/Visual Studio 2012/Projects/projects/IROS2015/IROS2015/agent_map/obstacle_map.csv");
 	matrix2d mems = FileManip::readDouble("C:/Users/Carrie/Documents/Visual Studio 2012/Projects/projects/IROS2015/IROS2015/agent_map/membership_map.csv");
 	matrix2d conns = FileManip::readDouble("C:/Users/Carrie/Documents/Visual Studio 2012/Projects/projects/IROS2015/IROS2015/agent_map/connections.csv");
 	matrix2d agentxy = FileManip::readDouble("C:/Users/Carrie/Documents/Visual Studio 2012/Projects/projects/IROS2015/IROS2015/agent_map/agent_map.csv");
 
+	
+	Matrix<bool,2> * obstacles = new Matrix<bool,2>(m.size(),m[0].size());
+	Matrix<int, 2> * members = new Matrix<int,2>(mems.size(),mems[0].size());
+	Matrix<bool,2> * connections = new Matrix<bool,2>(conns.size(), conns[0].size());
 
-	std::vector<std::vector<bool> > * obstacles = new std::vector<std::vector<bool> > (m.size());
-	std::vector<std::vector<int> > * members = new std::vector<std::vector<int> > (mems.size());
-	for (int i=0; i<m.size(); i++){
-		obstacles->at(i) = std::vector<bool>(m[i].size());
-		for (int j=0; j<m[i].size(); j++){
-			obstacles->at(i)[j] = m[i][j]>0.0;
+	for (int i=0; i<conns.size(); i++){
+		for (int j=0; j<conns[0].size(); j++){
+			(*connections)(i,j) = conns[i][j];
 		}
 	}
 
+	for (int i=0; i<m.size(); i++){
+		for (int j=0; j<m[i].size(); j++){
+			obstacles->row(i)[j] = m[i][j]>0.0;
+		}
+	}
 
 
 	for (int i=0; i<mems.size(); i++){
-		members->at(i) = std::vector<int>(mems[i].size());
 		for(int j=0; j<mems[i].size(); j++){
-			members->at(i)[j] = mems[i][j];
+			members->row(i)[j] = mems[i][j];
 		}
 	}
-	AStar_grid a(obstacles);
+
+	grid_lookup masks = getMasks(obstacles,connections,members);
+
+
+	//AStar_grid a(obstacles);
+
+	XY source(140,35);
+	XY goal(180,56);
+
+	int msource = (*members)(source.x,source.y);
+	int mgoal = (*members)(goal.x,goal.y);
+
+	
+	
+	std::vector<XY> fullpath = masks[msource][mgoal]->m.get_solution_path(source,goal);
+
+
+
+	//std::vector<XY> fullpath = a.m.get_solution_path(source, goal);
+	//int dist = a.m.solve(source.x,source.y,goal.x,goal.y);
+	
+	printf("Dist=%i",fullpath.size());
+	system("pause");
 
 	/*
 	a.m.solve(0,29,agentxy[0][0],agentxy[0][1]);
@@ -44,7 +90,8 @@ int main (int argc, char const *argv[]){
 	system("pause");
 	exit(1);
 	/**/
-	matrix2d voronoi_mems(obstacles->size());
+
+	/*matrix2d voronoi_mems(obstacles->size());
 	for (int i=0; i<obstacles->size(); i++){
 		voronoi_mems[i] = matrix1d(obstacles->at(i).size(),-1); // -1 indicates no membership (should only be obstacles
 		for (int j=0; j<obstacles->at(i).size(); j++){
@@ -67,7 +114,7 @@ int main (int argc, char const *argv[]){
 		}
 	}
 
-	PrintOut::toFile2D(voronoi_mems,"voronoi_mems.csv");
+	PrintOut::toFile2D(voronoi_mems,"voronoi_mems.csv");*/
 
 
 	//AStar_grid a(obstacles,members,0,1);
