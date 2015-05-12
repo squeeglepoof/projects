@@ -11,6 +11,7 @@
 #include <boost/unordered_set.hpp>
 #include <ctime>
 #include <iostream>
+#include <limits>
 
 class mt{ // "maze types"
 public:
@@ -106,9 +107,12 @@ public:
 		// SOURCE AND GOAL DECIDED IN SEARCH!
 
 		int v_index = 0;
-		for (std::vector<std::vector<bool> >::iterator obs = obstacle_map->begin(); obs!=obstacle_map->end(); obs++){
-			for (std::vector<bool>::iterator o = obs->begin(); o!=obs->end(); o++){
-				if (*o){ // there is an obstacle!
+		// NOTE: V_INDEX COUNT ASSUMES YOU'RE GOING THROUGH THE OBSTACLES DIFFERENTLY...
+		//for (std::vector<std::vector<bool> >::iterator obs = obstacle_map->begin(); obs!=obstacle_map->end(); obs++){
+			//for (std::vector<bool>::iterator o = obs->begin(); o!=obs->end(); o++){
+		for (int y=0; y<obstacle_map->begin()->size(); y++){
+			for (int x=0; x<obstacle_map->size(); x++){
+				if (obstacle_map->at(x)[y]){ // there is an obstacle!
 					mt::vertex_descriptor u = vertex(v_index,m_grid);
 					m_barriers.insert(u); // insert a barrier!
 				}
@@ -142,7 +146,7 @@ public:
 		return m_barriers.find(u) != m_barriers.end();
 	}
 
-	bool solve(int xsource, int ysource, int xgoal, int ygoal){
+	double solve(int xsource, int ysource, int xgoal, int ygoal){
 		boost::static_property_map<mt::distance> weight(1);
 		// The predecessor map is a vertex-to-vertex mapping.
 		typedef boost::unordered_map<mt::vertex_descriptor,
@@ -174,11 +178,11 @@ public:
 				m_solution.insert(u);
 			m_solution.insert(s);
 			m_solution_length = distance[g];
-			return true;
+			//return true;
+			return m_solution_length;
 		}
-
-		return false;
-
+		double maxdist = DBL_MAX;
+		return maxdist;
 	}
 	bool solved() const {return !m_solution.empty();}
 	bool solution_contains(mt::vertex_descriptor u) const {
@@ -187,6 +191,10 @@ public:
 
 	euclidean_heuristic heuristic;
 	astar_goal_visitor visitor;
+
+	
+	// The length of the solution path
+	mt::distance m_solution_length;
 
 private:
 	// Create the underlying rank-2 grid with the specified dimensions.
@@ -208,8 +216,6 @@ private:
 	mt::vertex_set m_barriers;
 	// The vertices on a solution path through the maze
 	mt::vertex_set m_solution;
-	// The length of the solution path
-	mt::distance m_solution_length;
 	
 };
 
@@ -222,7 +228,7 @@ static std::ostream& operator<<(std::ostream& output, const maze& m) {
 			output << BARRIER;
 		output << std::endl;
 		// Body
-		for (int y = m.length(1)-1; y >= 0; y--) {
+		for (int y = 0; y<m.length(1)-1; y++){//m.length(1)-1; y >= 0; y--) {
 			// Enumerate rows in reverse order and columns in regular order so that
 			// (0,0) appears in the lower left-hand corner.  This requires that y be
 			// int and not the unsigned vertices_size_type because the loop exit

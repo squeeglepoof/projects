@@ -257,17 +257,9 @@ connected = zeros(size(obstacle_map));
 
 x1 = zeros(size(edges,1),1);
 y1 = zeros(size(edges,1),1);
-%x2 = zeros(size(edges,1),1);
-%y2 = zeros(size(edges,1),1);
-
 %%
 for i=1:size(edges,1)
-    [xtemp ytemp] = ind2sub(size(obstacle_map),edges(i,1));
-    x1(i) = xtemp;
-    y1(i) = ytemp;
-%    [xtemp ytemp] = ind2sub(size(obstacle_map),edges(i,2));
-%    x2(i) = xtemp;
-%    y2(i) = ytemp;
+    [xtemp(i) ytemp(i)] = ind2sub(size(obstacle_map),edges(i,1));
 end
 
 
@@ -277,3 +269,24 @@ obst_check = [];
 for i=1:size(x1,1)
    obst_check = [obst_check; obstacle_map(x1(i),y1(i))]; 
 end
+
+%%
+
+x = [];
+y = [];
+for i=1:length(freeID)
+    [xtemp ytemp] = ind2sub(size(obstacle_map),freeID(i));
+    x = [x xtemp];
+    y = [y ytemp];
+end
+
+obstacle_map = zeros(size(obstacle_map));
+
+for i=1:length(IDX)
+   obstacle_map(x(i),y(i)) = IDX(i); 
+end
+
+%%
+
+load('obstacle_map.csv')
+load('membership_map.csv')
