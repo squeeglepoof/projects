@@ -60,9 +60,14 @@ int main (int argc, char const *argv[]){
 	grid_lookup masks = getMasks(obstacles,connections,members);
 
 
-	//AStar_grid a(obstacles);
+	system("pause");
 
-	XY source(140,35);
+
+	AStar_grid a(obstacles);
+
+
+
+	/*XY source(140,35);
 	XY goal(180,56);
 
 	int msource = (*members)(source.x,source.y);
@@ -91,30 +96,51 @@ int main (int argc, char const *argv[]){
 	exit(1);
 	/**/
 
-	/*matrix2d voronoi_mems(obstacles->size());
-	for (int i=0; i<obstacles->size(); i++){
-		voronoi_mems[i] = matrix1d(obstacles->at(i).size(),-1); // -1 indicates no membership (should only be obstacles
-		for (int j=0; j<obstacles->at(i).size(); j++){
-			if(!obstacles->at(i)[j]){
-				printf("(%i,%i),",i,j);
-				std::vector<double> dist(agentxy.size());
+	matrix2d voronoi_mems(obstacles->dim1());
+	for (int i=0; i<voronoi_mems.size(); i++){
+		voronoi_mems[i] = matrix1d(obstacles->dim2());
+	}
+
+	for (int i=0; i<agentxy.size(); i++){
+		if ((*obstacles)(agentxy[i][0],agentxy[i][1])){
+			printf("found one! (obstacles)");
+		}
+		mt::vertex_descriptor u = {{agentxy[i][0],agentxy[i][1]}};
+		if (a.m.has_barrier(u)){
+			printf("found one! (barrier grid)");
+		}
+	}
+
+	std::system("pause");
+
+	
+	for (int y=0; y<obstacles->dim2(); y++){
+		for (int x=0; x<obstacles->dim1(); x++){
+			if(!((*obstacles)(x,y))){
+				printf("(%i,%i),",x,y);
+				std::vector<double> dist(agentxy.size(),DBL_MAX);
 				for (int k=0; k<agentxy.size(); k++){
-					dist[k] = a.m.solve(i,j,agentxy[k][1],agentxy[k][0]); // swapping the xy coordinates for agentxy: may be in different reference frame
+					int dx = agentxy[k][0]-x;
+					int dy = agentxy[k][1]-y;
+					double dmin = *min_element(dist.begin(),dist.end());
+					if (dmin<sqrt(dx*dx+dy*dy)) continue;
+
+					dist[k] = a.m.solve(x,y,agentxy[k][0],agentxy[k][1]);
 				}
 				// find the shortest distance
 				std::vector<double>::iterator shortest_dist = min_element(dist.begin(),dist.end());
 				if (*shortest_dist == DBL_MAX){
-					voronoi_mems[i][j] = -2; // open space, but it can't get to any other sector
+					voronoi_mems[x][y] = -2; // open space, but it can't get to any other sector
 				} else {
-					voronoi_mems[i][j] = std::distance(dist.begin(), shortest_dist);
+					voronoi_mems[x][y] = std::distance(dist.begin(), shortest_dist);
 				}
-				printf("%f,%f\n",*shortest_dist,voronoi_mems[i][j]);
+				printf("%f,%f\n",*shortest_dist,voronoi_mems[x][y]);
 				
 			}
 		}
 	}
 
-	PrintOut::toFile2D(voronoi_mems,"voronoi_mems.csv");*/
+	PrintOut::toFile2D(voronoi_mems,"voronoi_mems.csv");
 
 
 	//AStar_grid a(obstacles,members,0,1);

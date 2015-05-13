@@ -254,27 +254,12 @@ end
 connected = zeros(size(obstacle_map));
 
 %%
-edges = find(obstacle_map==0);
-nsectors = 20;
 
-x = zeros(size(edges,1),1);
-y = zeros(size(edges,1),1);
-
+x1 = zeros(size(edges,1),1);
+y1 = zeros(size(edges,1),1);
+%%
 for i=1:size(edges,1)
-    [x(i) y(i)] = ind2sub(size(obstacle_map),edges(i,1));
-end
-
-
-
-
-data = [x y];
-
-[IDX, C] = kmeans(data,20);
-
-obstacle_map_sectors = obstacle_map;
-for i=1:size(edges,1)
-    [ind1, ind2] = ind2sub(size(obstacle_map),edges(i,1));
-    obstacle_map_sectors(ind1,ind2) = IDX(i);
+    [xtemp(i) ytemp(i)] = ind2sub(size(obstacle_map),edges(i,1));
 end
 
 
@@ -305,3 +290,10 @@ end
 
 load('obstacle_map.csv')
 load('membership_map.csv')
+
+%%
+
+obsts = [];
+for i=1:length(agent_map)
+    obsts = [obsts obstacle_map(agent_map(i,1),agent_map(i,2))];
+end
