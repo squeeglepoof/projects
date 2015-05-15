@@ -111,22 +111,27 @@ int main (int argc, char const *argv[]){
 		}
 	}
 
+
 	std::system("pause");
 
 	
-	for (int y=0; y<obstacles->dim2(); y++){
-		for (int x=0; x<obstacles->dim1(); x++){
+	//for (int y=0; y<obstacles->dim2(); y++){
+		//for (int x=0; x<obstacles->dim1(); x++){
+	int y = 66;
+	int x = 125;
 			if(!((*obstacles)(x,y))){
 				printf("(%i,%i),",x,y);
 				std::vector<double> dist(agentxy.size(),DBL_MAX);
-				for (int k=0; k<agentxy.size(); k++){
+				//for (int k=0; k<agentxy.size(); k++){
+				int k=9;
 					int dx = agentxy[k][0]-x;
 					int dy = agentxy[k][1]-y;
 					double dmin = *min_element(dist.begin(),dist.end());
-					if (dmin<sqrt(dx*dx+dy*dy)) continue;
-
+					//if (dmin<sqrt(dx*dx+dy*dy)) continue;
+					a.m.m_solution.clear();
 					dist[k] = a.m.solve(x,y,agentxy[k][0],agentxy[k][1]);
-				}
+					cout << a.m << endl;
+				//}
 				// find the shortest distance
 				std::vector<double>::iterator shortest_dist = min_element(dist.begin(),dist.end());
 				if (*shortest_dist == DBL_MAX){
@@ -137,10 +142,10 @@ int main (int argc, char const *argv[]){
 				printf("%f,%f\n",*shortest_dist,voronoi_mems[x][y]);
 				
 			}
-		}
-	}
+		//}
+	//}
 
-	PrintOut::toFile2D(voronoi_mems,"voronoi_mems.csv");
+	//PrintOut::toFile2D(voronoi_mems,"voronoi_mems.csv");
 
 
 	//AStar_grid a(obstacles,members,0,1);
