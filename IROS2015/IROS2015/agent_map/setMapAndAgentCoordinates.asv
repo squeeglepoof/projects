@@ -141,39 +141,62 @@ scatter(agent_map(:,1),agent_map(:,2));
 %% Make a connection map
 % now with obstacle checking!
 
-XDIM = size(membership,1);
-YDIM = size(membership,2);
+XDIM = size(membership_map,1);
+YDIM = size(membership_map,2);
+
+membership_map = membership_map;
 
 % Trace the edges
 connections = zeros(size(agent_map,1));
-for i=1:size(membership,1)
-    for j=1:size(membermap,2)
+for i=1:XDIM
+    i
+    for j=1:YDIM
         % Assume 4 connections will capture everything (no slipping through
         % gaps!)
-        mymember = membership(i,j);
-        if (i-1>=1 && obstacle_map(i-1,j)~=1 && obstacle_map(i,j)~=1)
-            connections(mymember,membership(i-1,j))=1;
-            connections(membership(i-1,j),mymember)=1;
-            
-        end
-        if (i+1<=XDIM && obstacle_map(i+1,j)~=1 && obstacle_map(i,j)~=1)
-           connections(mymember,membership(i+1,j))=1;
-           connections(membership(i+1,j),mymember)=1;
-        end
-        if (j-1>=1 && obstacle_map(i,j-1)~=1 && obstacle_map(i,j)~=1)
-           connections(mymember,membership(i,j-1))=1;
-           connections(membership(i,j-1),mymember)=1;
-        end
-        if (j+1<=YDIM && obstacle_map(i,j+1)~=1 && obstacle_map(i,j)~=1)
-           connections(mymember,membership(i,j+1))=1;
-           connections(membership(i,j+1),mymember)=1;
+        
+        mymember = membership_map(i,j);
+        if (mymember>0)
+            % Check left
+            if (i-1>=1 && obstacle_map(i-1,j)~=1 && obstacle_map(i,j)~=1)
+                if (membership_map(i-1,j)>0)
+                    connections(mymember,membership_map(i-1,j))=1;
+                    connections(membership_map(i-1,j),mymember)=1;
+                end
+
+            end
+            % Check right
+            if (i+1<=XDIM && obstacle_map(i+1,j)~=1 && obstacle_map(i,j)~=1)
+                if (membership_map(i+1,j)>0)
+                   connections(mymember,membership_map(i+1,j))=1;
+                   connections(membership_map(i+1,j),mymember)=1;
+                end
+            end
+            % Check down
+            if (j-1>=1 && obstacle_map(i,j-1)~=1 && obstacle_map(i,j)~=1)
+                if (membership_map(i,j-1)>0)
+                   connections(mymember,membership_map(i,j-1))=1;
+                   connections(membership_map(i,j-1),mymember)=1;
+                end
+            end
+            % Check up
+            if (j+1<=YDIM && obstacle_map(i,j+1)~=1 && obstacle_map(i,j)~=1)
+                if (membership_map(i,j+1)>0)
+                   connections(mymember,membership_map(i,j+1))=1;
+                   connections(membership_map(i,j+1),mymember)=1;
+                end
+            end
         end
     end
 end
 
 hold on
 %LineSpec('m', 'LineWidth', 4);
-gplot(connections,agent_map, 'm')
+%%
+amap = [agent_map(:,2), agent_map(:,1)]
+
+gplot(connections,amap, 'm')
+
+%%
 h=findobj('type','line');
 set(h,'linewidth',4)
 csvwrite('connections.csv',connections);
@@ -301,6 +324,16 @@ end
 %% 
 for i=-2:14
     i
-   imshow(voronoi_mems==i);
+    
+   imshow(vmems==i);
    pause();
+end
+
+%%
+
+fixxy = [];
+
+for i=1:length(fixes)
+   [x,y] = ind2sub(size(obstacle_map),fixes(i));
+   fixxy = [fixxy; [x y]];
 end

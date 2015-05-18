@@ -290,3 +290,17 @@ end
 
 load('obstacle_map.csv')
 load('membership_map.csv')
+
+%%
+
+obsts = [];
+for i=1:length(agent_map)
+    obsts = [obsts obstacle_map(agent_map(i,1),agent_map(i,2))];
+end
+
+%% 
+for i=-2:14
+    i
+   imshow(voronoi_mems==i);
+   pause();
+end

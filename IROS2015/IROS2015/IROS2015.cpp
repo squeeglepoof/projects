@@ -37,7 +37,7 @@
 
 
 void program(int calls, MultiagentTypeNE::TypeHandling sim_mode, std::string rwd_name, std::string conflict_name){
-	srand(time(NULL));
+	//srand(time(NULL));
 	ATFMSectorDomain* domain = new ATFMSectorDomain(true);
 
 	// FOR DEBUGGING
