@@ -77,7 +77,7 @@ std::string conflict_names[MultiagentTypeNE::TypeHandling::NMODES] = {
 //#pragma omp parallel for
 		for (int i=0; i<MultiagentTypeNE::NMODES; i++){
 			//if (i==MultiagentTypeNE::WEIGHTED || i==MultiagentTypeNE::MULTIMIND || i==MultiagentTypeNE::BLIND) continue;
-			if (i==MultiagentTypeNE::BLIND) continue;
+			//if (i==MultiagentTypeNE::BLIND) continue;
 			printf("mode type %i started. ", i);
 			program(r,MultiagentTypeNE::TypeHandling(i), rwd_names[i], conflict_names[i]);
 		}
