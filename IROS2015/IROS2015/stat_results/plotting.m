@@ -1,7 +1,7 @@
 clear all
 close all
 clc
-
+%%
 
 NSAMPLES = sqrt(2);
 
@@ -18,6 +18,7 @@ for i=0:1
 end
 
 
+%%
 stdb = std(blind)/NSAMPLES;
 stdw = std(weight)/NSAMPLES;
 stdx = std(xweight)/NSAMPLES;
@@ -36,4 +37,4 @@ errorbar(multi, stdm, 'm');
 
 %legend('blind','weighted','xweight','multi');
 legend('blind','weighted','multi');
-axis([0 50 -12000 -9000])
+%axis([0 50 -12000 -9000])
