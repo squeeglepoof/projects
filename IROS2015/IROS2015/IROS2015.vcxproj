@@ -83,12 +83,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\libraries\Domains\ATFMSectorDomain\ATFMSectorDomain.h" />
+    <ClInclude Include="..\..\..\libraries\Domains\ATFMSectorDomain\Fix.h" />
+    <ClInclude Include="..\..\..\libraries\Domains\ATFMSectorDomain\Sector.h" />
+    <ClInclude Include="..\..\..\libraries\Domains\ATFMSectorDomain\UAV.h" />
     <ClInclude Include="..\..\..\libraries\Domains\IDomainStateful.h" />
     <ClInclude Include="..\..\..\libraries\FileIO\easyio\easyio.h" />
     <ClInclude Include="..\..\..\libraries\Math\easymath.h" />
     <ClInclude Include="..\..\..\libraries\Multiagent\IMultiagentSystem.h" />
     <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentNE.h" />
     <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.h" />
+    <ClInclude Include="..\..\..\libraries\Planning\AStarManager.h" />
     <ClInclude Include="..\..\..\libraries\Simulation\SimNE.h" />
     <ClInclude Include="..\..\..\libraries\Simulation\SimTypeNE.h" />
     <ClInclude Include="..\..\..\libraries\SingleAgent\IAgent.h" />
@@ -98,18 +102,21 @@
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeCrossweighted.h" />
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeWeighted.h" />
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\TypeNeuroEvo.h" />
-    <ClInclude Include="AStarManager.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\libraries\Domains\ATFMSectorDomain\ATFMSectorDomain.cpp" />
+    <ClCompile Include="..\..\..\libraries\Domains\ATFMSectorDomain\Fix.cpp" />
+    <ClCompile Include="..\..\..\libraries\Domains\ATFMSectorDomain\Sector.cpp" />
+    <ClCompile Include="..\..\..\libraries\Domains\ATFMSectorDomain\UAV.cpp" />
     <ClCompile Include="..\..\..\libraries\Domains\IDomainStateful.cpp" />
     <ClCompile Include="..\..\..\libraries\FileIO\easyio\easyio.cpp" />
     <ClCompile Include="..\..\..\libraries\Math\easymath.cpp" />
     <ClCompile Include="..\..\..\libraries\Multiagent\IMultiagentSystem.cpp" />
     <ClCompile Include="..\..\..\libraries\Multiagent\MultiagentNE.cpp" />
     <ClCompile Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.cpp" />
+    <ClCompile Include="..\..\..\libraries\Planning\AStarManager.cpp" />
     <ClCompile Include="..\..\..\libraries\Simulation\SimNE.cpp" />
     <ClCompile Include="..\..\..\libraries\Simulation\SimTypeNE.cpp" />
     <ClCompile Include="..\..\..\libraries\SingleAgent\IAgent.cpp" />
@@ -118,7 +125,6 @@
     <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeCrossweighted.cpp" />
     <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeWeighted.cpp" />
     <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\TypeNeuroEvo.cpp" />
-    <ClCompile Include="AStarManager.cpp" />
     <ClCompile Include="IROS2015.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

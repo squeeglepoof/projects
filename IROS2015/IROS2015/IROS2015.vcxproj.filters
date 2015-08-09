@@ -72,7 +72,16 @@
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuralNet\TypeNeuralNet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AStarManager.h">
+    <ClInclude Include="..\..\..\libraries\Planning\AStarManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Domains\ATFMSectorDomain\Fix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Domains\ATFMSectorDomain\Sector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Domains\ATFMSectorDomain\UAV.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -128,7 +137,16 @@
     <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\TypeNeuroEvo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AStarManager.cpp">
+    <ClCompile Include="..\..\..\libraries\Planning\AStarManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Domains\ATFMSectorDomain\Fix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Domains\ATFMSectorDomain\Sector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Domains\ATFMSectorDomain\UAV.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
