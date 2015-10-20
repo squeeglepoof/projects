@@ -31,6 +31,7 @@
 //#include "../../../libraries/Simulation/SimNE.h"
 #include "../../../libraries/Simulation/SimTypeNE.h"
 #include "../../../libraries/Domains/ATFMSectorDomain/ATFMSectorDomain.h"
+#include "UTMDomainAbstraction.h"
 
 
 
@@ -38,7 +39,8 @@
 
 void program(int calls, MultiagentTypeNE::TypeHandling sim_mode, std::string rwd_name, std::string conflict_name){
 	//srand(time(NULL));
-	ATFMSectorDomain* domain = new ATFMSectorDomain(false);
+	//ATFMSectorDomain* domain = new ATFMSectorDomain(false);
+	UTMDomainAbstraction* domain = new UTMDomainAbstraction(false);
 
 	// FOR DEBUGGING
 	

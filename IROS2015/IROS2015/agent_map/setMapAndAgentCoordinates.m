@@ -304,3 +304,15 @@ for i=-2:14
    imshow(voronoi_mems==i);
    pause();
 end
+
+%%
+
+% Calculate edges
+all_edges =[];
+for i=1:length(connections)
+    p1 = find(connections(i,:));
+    p2 = i*ones(1,length(p1));
+    e = [p1; p2];
+    all_edges = [all_edges,e];
+end
+
