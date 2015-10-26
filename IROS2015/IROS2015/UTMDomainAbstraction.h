@@ -8,7 +8,12 @@ public:
 	~UTMDomainAbstraction(void);
 	std::vector<std::vector<int> > edge_time; // time that you need to be on an edge
 	matrix2d connection_time;
+	double run_g;
+	matrix1d run_d;
 	std::vector<std::vector<std::vector<int> > > connection_capacity; // capacity for each type of UAV [connection][connection][type]
+	matrix1d differenceReward();
+	enum {GLOBAL, DIFFERENCE};
+	int rewardType;
 
 	virtual matrix1d getPerformance();
 	virtual matrix1d getRewards();

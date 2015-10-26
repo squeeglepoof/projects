@@ -4,6 +4,9 @@
 UTMDomainAbstraction::UTMDomainAbstraction(bool deterministic):
 	ATFMSectorDomain(deterministic, true) 
 {
+
+	rewardType = DIFFERENCE;
+
 	// Planning
 	planners = new AStarManager(UAV::NTYPES, edges,membership_map, agent_locs,true); //NOTE: MAY NOT HAVE TO MAKE A DIFFERENT ONE FOR ABSTRACTION???
 
@@ -15,6 +18,9 @@ UTMDomainAbstraction::UTMDomainAbstraction(bool deterministic):
 	connection_capacity = vector<vector<vector<int> > > (n_agents, vector<vector<int> >(n_agents, vector<int> (UAV::NTYPES,0)));
 	edge_time = vector<vector<int> >(n_agents,vector<int>(n_agents,10));
 	for_each_pairing(agent_locs, agent_locs, connection_time, manhattan_dist);
+
+	run_g = 0.0;
+	run_d = matrix1d(sectors->size(),0.0);
 }
 
 
@@ -23,15 +29,16 @@ UTMDomainAbstraction::~UTMDomainAbstraction(void)
 }
 
 matrix1d UTMDomainAbstraction::getPerformance(){
-	vector<Demographics> oldLoads = getLoads(); // get the current loads on all sectors
-	vector<Demographics> capacities = vector<Demographics>(oldLoads.size(), Demographics(UAV::NTYPES,0));
-	double g = G(oldLoads,capacities);
-	return matrix1d(sectors->size(), g);
+	//vector<Demographics> oldLoads = getLoads(); // get the current loads on all sectors
+	//vector<Demographics> capacities = vector<Demographics>(oldLoads.size(), Demographics(UAV::NTYPES,0));
+	//double g = G(oldLoads,capacities);
+	//return matrix1d(sectors->size(), g);
+	
+	return matrix1d(sectors->size(), run_g);
 }
 
-matrix1d UTMDomainAbstraction::getRewards(){
-	// Calculate loads
-	vector<Demographics> oldLoads = getLoads(); // get the current loads on all sectors
+matrix1d UTMDomainAbstraction::differenceReward(){
+		vector<Demographics> oldLoads = getLoads(); // get the current loads on all sectors
 	vector<vector<Demographics> > allloads = vector<vector<Demographics> >(n_agents); // agent removed, agent for load, type
 	for (unsigned int i=0; i< allloads.size(); i++){
 		allloads[i] = oldLoads;
@@ -60,7 +67,7 @@ matrix1d UTMDomainAbstraction::getRewards(){
 	// Calculate D from counterfactual
 	vector<Demographics> C = vector<Demographics>(n_agents);// capacities[agent, type]
 	for (Demographics &c: C){
-		c = Demographics(UAV::NTYPES,10);
+		c = Demographics(UAV::NTYPES,0);
 	}
 	matrix1d D = matrix1d(n_agents);
 	double G_reg = G(oldLoads,C);
@@ -73,7 +80,20 @@ matrix1d UTMDomainAbstraction::getRewards(){
 	}
 	// 
 
-	return D; // global reward
+	return D;
+}
+
+matrix1d UTMDomainAbstraction::getRewards(){
+	// Calculate loads
+	if (rewardType==GLOBAL){
+
+	} else if (rewardType==DIFFERENCE){
+
+	} else {
+		printf("No reward type set.");
+		system("pause");
+		exit(1);
+	}
 }
 
 void UTMDomainAbstraction::incrementUAVPath(){
@@ -117,6 +137,13 @@ void UTMDomainAbstraction::getPathPlans(std::list<std::shared_ptr<UAV> > &new_UA
 		int nextSectorID = u->nextSectorID();
 		sectors->at(nextSectorID).toward.push_back(u);
 	}
+
+	run_g += G(getLoads(), vector<Demographics>(sectors->size(), Demographics(UAV::NTYPES,0)));
+	
+	matrix1d d_temp = differenceReward();
+	for(int i=0; i<d_temp.size(); i++){
+		run_d[i]+=d_temp[i];
+	}
 }
 
 void UTMDomainAbstraction::exportLog(std::string fid, double G){
@@ -127,4 +154,6 @@ void UTMDomainAbstraction::reset(){
 	UAVs.clear();
 	planners->reset();
 	conflict_count = 0;
+	run_d = matrix1d(sectors->size(),0.0);
+	run_g = 0.0;
 }
