@@ -86,9 +86,9 @@ matrix1d UTMDomainAbstraction::differenceReward(){
 matrix1d UTMDomainAbstraction::getRewards(){
 	// Calculate loads
 	if (rewardType==GLOBAL){
-
+		return getPerformance();
 	} else if (rewardType==DIFFERENCE){
-
+		return differenceReward();
 	} else {
 		printf("No reward type set.");
 		system("pause");
