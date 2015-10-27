@@ -74,18 +74,18 @@ std::string conflict_names[MultiagentTypeNE::TypeHandling::NMODES] = {
 	"stat_results/multimind_conflict-",
 };
 /**/
-int r=0;
+//int r=0;
 //int i=0;*/
-	//for (int r=0; r<5; r++){
+	for (int r=0; r<5; r++){
 		printf("************* RUN %i STARTING ***********\n",r);
 //#pragma omp parallel for
-		for (int i=0; i<MultiagentTypeNE::NMODES; i++){
+		//for (int i=0; i<MultiagentTypeNE::NMODES; i++){
 			//if (i==MultiagentTypeNE::WEIGHTED || i==MultiagentTypeNE::MULTIMIND || i==MultiagentTypeNE::BLIND) continue;
 			//if (i==MultiagentTypeNE::BLIND) continue;
 			//printf("mode type %i started. ", i);
-			program(r,MultiagentTypeNE::BLIND, rwd_names[i], conflict_names[i]);
-		}
-	//}
+			program(r,MultiagentTypeNE::BLIND, rwd_names[0], conflict_names[0]);
+		//}
+	}
 }
 
 int _tmain(int argc, _TCHAR* argv[])

@@ -5,7 +5,7 @@ UTMDomainAbstraction::UTMDomainAbstraction(bool deterministic):
 	ATFMSectorDomain(deterministic, true) 
 {
 
-	rewardType = DIFFERENCE;
+	rewardType = GLOBAL;
 
 	// Planning
 	planners = new AStarManager(UAV::NTYPES, edges,membership_map, agent_locs,true); //NOTE: MAY NOT HAVE TO MAKE A DIFFERENT ONE FOR ABSTRACTION???
@@ -15,7 +15,7 @@ UTMDomainAbstraction::UTMDomainAbstraction(bool deterministic):
 		fixes->push_back(Fix(sectors->at(i).xy,i,is_deterministic,planners));
 	}
 	
-	connection_capacity = vector<vector<vector<int> > > (n_agents, vector<vector<int> >(n_agents, vector<int> (UAV::NTYPES,0)));
+	connection_capacity = matrix3d(n_agents, matrix2d(n_agents, matrix1d (UAV::NTYPES,2.0)));
 	edge_time = vector<vector<int> >(n_agents,vector<int>(n_agents,10));
 	for_each_pairing(agent_locs, agent_locs, connection_time, manhattan_dist);
 
@@ -38,7 +38,25 @@ matrix1d UTMDomainAbstraction::getPerformance(){
 }
 
 matrix1d UTMDomainAbstraction::differenceReward(){
-		vector<Demographics> oldLoads = getLoads(); // get the current loads on all sectors
+	matrix3d l = getLoads();
+	matrix1d D = matrix1d(n_agents);
+	matrix3d c = connection_capacity;
+	
+	for (int i=0; i<n_agents; i++){
+		double oc1 = 0.0;
+		double oc2 = 0.0;
+		for (int a=0; a<n_agents; a++){
+			for (int t=0; t<UAV::NTYPES; t++){
+				if (l[a][i][t]>c[a][i][t])
+					oc1 += l[a][i][t] - c[a][i][t];
+				if (sectors->at(i).average_load(a,t)>c[a][i][t])
+					oc2 += sectors->at(i).average_load(a,t);// - c[a][i][t];
+			}
+		}
+		D[i] = -(oc1*oc1 + oc2*oc2);
+	}
+
+	/*vector<Demographics> oldLoads = getLoads(); // get the current loads on all sectors
 	vector<vector<Demographics> > allloads = vector<vector<Demographics> >(n_agents); // agent removed, agent for load, type
 	for (unsigned int i=0; i< allloads.size(); i++){
 		allloads[i] = oldLoads;
@@ -47,6 +65,8 @@ matrix1d UTMDomainAbstraction::differenceReward(){
 
 	// Count the adjusted load
 	for(Sector s: *sectors){
+		
+		
 		// build the map with the blacked-out sector
 		planners->blockSector(s.sectorID);
 
@@ -61,8 +81,9 @@ matrix1d UTMDomainAbstraction::differenceReward(){
 			allloads[s.sectorID][newnextsector][u->type_ID]++;
 		}
 		planners->unblockSector(); // reset the cost maps
-
+		
 	}
+	
 
 	// Calculate D from counterfactual
 	vector<Demographics> C = vector<Demographics>(n_agents);// capacities[agent, type]
@@ -78,7 +99,7 @@ matrix1d UTMDomainAbstraction::differenceReward(){
 		double G_c = G(allloads[i],C);
 		D[i] = G_reg-G_c;
 	}
-	// 
+	*/ 
 
 	return D;
 }
@@ -99,11 +120,11 @@ matrix1d UTMDomainAbstraction::getRewards(){
 void UTMDomainAbstraction::incrementUAVPath(){
 	// in abstraction mode, move to next center of target
 	for (std::shared_ptr<UAV> &u: UAVs){
-		if (u->time_left_on_edge <=0){
+		if (u->t <=0){
 			u->high_path_prev.pop_front();
 			u->loc = sectors->at(u->high_path_prev.front()).xy;
 		} else {
-			u->time_left_on_edge--;
+			u->t--;
 		}
 	}
 }
@@ -128,9 +149,10 @@ void UTMDomainAbstraction::getPathPlans(){
 
 void UTMDomainAbstraction::getPathPlans(std::list<std::shared_ptr<UAV> > &new_UAVs){
 	for (Sector &s: *sectors){
+		s.tallyLoad();
 		s.toward.clear();
 	}
-	for (std::shared_ptr<UAV> &u : UAVs){
+	for (std::shared_ptr<UAV> &u : new_UAVs){
 		int memstart = membership_map->at(u->loc.x,u->loc.y);
 		int memend = membership_map->at(u->end_loc.x,u->end_loc.y);
 		u->planAbstractPath(connection_time,memstart, memend); // sets own next waypoint
@@ -138,7 +160,7 @@ void UTMDomainAbstraction::getPathPlans(std::list<std::shared_ptr<UAV> > &new_UA
 		sectors->at(nextSectorID).toward.push_back(u);
 	}
 
-	run_g += G(getLoads(), vector<Demographics>(sectors->size(), Demographics(UAV::NTYPES,0)));
+	run_g += G(getLoads(), connection_capacity);
 	
 	matrix1d d_temp = differenceReward();
 	for(int i=0; i<d_temp.size(); i++){
@@ -147,7 +169,11 @@ void UTMDomainAbstraction::getPathPlans(std::list<std::shared_ptr<UAV> > &new_UA
 }
 
 void UTMDomainAbstraction::exportLog(std::string fid, double G){
-	//intentionally left blank
+	for (int i=0; i<sectors->size(); i++){
+		string fname = "log";
+		fname += to_string(i);
+		PrintOut::toFile3D(sectors->at(i).loads_each_step,fname);
+	}
 }
 
 void UTMDomainAbstraction::reset(){
@@ -156,4 +182,9 @@ void UTMDomainAbstraction::reset(){
 	conflict_count = 0;
 	run_d = matrix1d(sectors->size(),0.0);
 	run_g = 0.0;
+	for (int i=0; i<sectors->size(); i++){
+		sectors->at(i).total_loads = matrix2d(n_agents,matrix1d(UAV::NTYPES,0.0));
+		sectors->at(i).nCallsToGetLoad = 0;
+		sectors->at(i).loads_each_step.clear();
+	}
 }

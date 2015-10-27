@@ -316,3 +316,11 @@ for i=1:length(connections)
     all_edges = [all_edges,e];
 end
 
+%%
+
+isum = 0.0;
+imean = zeros(1,length(log0));
+for i=1:length(log0)
+    isum = isum + log0(1,i);
+    imean(1,i) = isum/i;
+end
