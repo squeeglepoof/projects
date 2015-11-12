@@ -17,10 +17,7 @@ UTMDomainAbstraction::UTMDomainAbstraction(bool deterministic):
 	
 	connection_capacity = matrix3d(n_agents, matrix2d(n_agents, matrix1d (UAV::NTYPES,2.0)));
 	edge_time = vector<vector<int> >(n_agents,vector<int>(n_agents,10));
-	for_each_pairing(agent_locs, agent_locs, connection_time, manhattan_dist);
-
-	run_g = 0.0;
-	run_d = matrix1d(sectors->size(),0.0);
+	for_each_pairing(agent_locs, agent_locs, connection_time, manhattan_dist); // gets the connection time: note this is also calculated for unconnected links
 }
 
 
@@ -28,16 +25,18 @@ UTMDomainAbstraction::~UTMDomainAbstraction(void)
 {
 }
 
-matrix1d UTMDomainAbstraction::getPerformance(){
-	//vector<Demographics> oldLoads = getLoads(); // get the current loads on all sectors
-	//vector<Demographics> capacities = vector<Demographics>(oldLoads.size(), Demographics(UAV::NTYPES,0));
-	//double g = G(oldLoads,capacities);
-	//return matrix1d(sectors->size(), g);
-	
-	return matrix1d(sectors->size(), run_g);
+double UTMDomainAbstraction::getGlobalReward(){
+	return 0.0; // REPLACE THIS LATER
 }
 
-matrix1d UTMDomainAbstraction::differenceReward(){
+matrix1d UTMDomainAbstraction::getPerformance(){
+	return matrix1d(n_agents,getGlobalReward());
+}
+
+matrix1d UTMDomainAbstraction::getDifferenceReward(){
+	
+	matrix1d D;
+	/*
 	matrix3d l = getLoads();
 	matrix1d D = matrix1d(n_agents);
 	matrix3d c = connection_capacity;
@@ -54,7 +53,7 @@ matrix1d UTMDomainAbstraction::differenceReward(){
 			}
 		}
 		D[i] = -(oc1*oc1 + oc2*oc2);
-	}
+	}*/
 
 	/*vector<Demographics> oldLoads = getLoads(); // get the current loads on all sectors
 	vector<vector<Demographics> > allloads = vector<vector<Demographics> >(n_agents); // agent removed, agent for load, type
@@ -107,9 +106,9 @@ matrix1d UTMDomainAbstraction::differenceReward(){
 matrix1d UTMDomainAbstraction::getRewards(){
 	// Calculate loads
 	if (rewardType==GLOBAL){
-		return getPerformance();
+		return matrix1d(n_agents, getGlobalReward());
 	} else if (rewardType==DIFFERENCE){
-		return differenceReward();
+		return getDifferenceReward();
 	} else {
 		printf("No reward type set.");
 		system("pause");
@@ -130,61 +129,34 @@ void UTMDomainAbstraction::incrementUAVPath(){
 }
 
 void UTMDomainAbstraction::detectConflicts(){
-	// intentionally left blank - conflict counting done in the reward and based on overcap
+	// count the over capacity here
 }
 
 void UTMDomainAbstraction::getPathPlans(){
-	for (Sector &s: *sectors){
-		s.toward.clear();
-	}
 	
 	for (std::shared_ptr<UAV> &u : UAVs){
 		int memstart = membership_map->at(u->loc.x,u->loc.y);
 		int memend = membership_map->at(u->end_loc.x,u->end_loc.y);
 		u->planAbstractPath(connection_time,memstart, memend);
 		int memnext = u->nextSectorID();
-		sectors->at(memnext).toward.push_back(u);
 	}
 }
 
 void UTMDomainAbstraction::getPathPlans(std::list<std::shared_ptr<UAV> > &new_UAVs){
-	for (Sector &s: *sectors){
-		s.tallyLoad();
-		s.toward.clear();
-	}
+
 	for (std::shared_ptr<UAV> &u : new_UAVs){
 		int memstart = membership_map->at(u->loc.x,u->loc.y);
 		int memend = membership_map->at(u->end_loc.x,u->end_loc.y);
 		u->planAbstractPath(connection_time,memstart, memend); // sets own next waypoint
-		int nextSectorID = u->nextSectorID();
-		sectors->at(nextSectorID).toward.push_back(u);
-	}
-
-	run_g += G(getLoads(), connection_capacity);
-	
-	matrix1d d_temp = differenceReward();
-	for(int i=0; i<d_temp.size(); i++){
-		run_d[i]+=d_temp[i];
 	}
 }
 
 void UTMDomainAbstraction::exportLog(std::string fid, double G){
-	for (int i=0; i<sectors->size(); i++){
-		string fname = "log";
-		fname += to_string(i);
-		PrintOut::toFile3D(sectors->at(i).loads_each_step,fname);
-	}
+	 // LEFT BLANK
 }
 
 void UTMDomainAbstraction::reset(){
 	UAVs.clear();
 	planners->reset();
 	conflict_count = 0;
-	run_d = matrix1d(sectors->size(),0.0);
-	run_g = 0.0;
-	for (int i=0; i<sectors->size(); i++){
-		sectors->at(i).total_loads = matrix2d(n_agents,matrix1d(UAV::NTYPES,0.0));
-		sectors->at(i).nCallsToGetLoad = 0;
-		sectors->at(i).loads_each_step.clear();
-	}
 }

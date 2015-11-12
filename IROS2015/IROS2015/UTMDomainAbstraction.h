@@ -6,12 +6,18 @@ class UTMDomainAbstraction :
 public:
 	UTMDomainAbstraction(bool deterministic);
 	~UTMDomainAbstraction(void);
+	enum CongestionMode{SECTOR, LINK}; // setting
+	int cmode; // the mode for congestion accounting
+
 	std::vector<std::vector<int> > edge_time; // time that you need to be on an edge
-	matrix2d connection_time;
-	double run_g;
-	matrix1d run_d;
+	
+	matrix2d connection_time; // time of UAV for each connection (regardless of type)
 	matrix3d connection_capacity; // capacity for each type of UAV [connection][connection][type]
-	matrix1d differenceReward();
+	
+	matrix1d getDifferenceReward();
+	double getDifferenceReward(int i); // get a specific difference reward for an agent
+	double getGlobalReward();
+		
 	enum {GLOBAL, DIFFERENCE};
 	int rewardType;
 	matrix2d sectorTraffic; //[sector][epoch]

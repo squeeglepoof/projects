@@ -102,6 +102,7 @@
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeCrossweighted.h" />
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeWeighted.h" />
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\TypeNeuroEvo.h" />
+    <ClInclude Include="RewardAnalysis.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="UTMDomainAbstraction.h" />
@@ -127,6 +128,7 @@
     <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeWeighted.cpp" />
     <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\TypeNeuroEvo.cpp" />
     <ClCompile Include="IROS2015.cpp" />
+    <ClCompile Include="RewardAnalysis.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
