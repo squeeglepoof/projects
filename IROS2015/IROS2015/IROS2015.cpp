@@ -40,7 +40,7 @@
 void program(int calls, MultiagentTypeNE::TypeHandling sim_mode, std::string rwd_name, std::string conflict_name){
 	//srand(time(NULL));
 	//ATFMSectorDomain* domain = new ATFMSectorDomain(false);
-	UTMDomainAbstraction* domain = new UTMDomainAbstraction(false);
+	UTMDomainAbstraction* domain = new UTMDomainAbstraction(true);
 
 	// FOR DEBUGGING
 	

@@ -144,6 +144,10 @@ void UTMDomainAbstraction::detectConflicts(){
 			}
 		}
 	}
+	
+	//printf("conflicts=%f\n",double(conflict_count));
+
+
 }
 
 void UTMDomainAbstraction::getPathPlans(){
