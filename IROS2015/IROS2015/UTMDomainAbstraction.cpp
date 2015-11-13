@@ -15,7 +15,9 @@ UTMDomainAbstraction::UTMDomainAbstraction(bool deterministic):
 		fixes->push_back(Fix(sectors->at(i).xy,i,is_deterministic,planners));
 	}
 	
-	connection_capacity = matrix3d(n_agents, matrix2d(n_agents, matrix1d (UAV::NTYPES,2.0)));
+	connection_capacity = matrix3d(n_agents, matrix2d(n_agents, matrix1d (UAV::NTYPES,2.0))); // note: unused
+	sector_capacity = matrix2d(n_agents,matrix1d(UAV::NTYPES,2.0) ); // arbitrary/flat sector capacity assignment
+
 	edge_time = vector<vector<int> >(n_agents,vector<int>(n_agents,10));
 	for_each_pairing(agent_locs, agent_locs, connection_time, manhattan_dist); // gets the connection time: note this is also calculated for unconnected links
 }
@@ -26,7 +28,7 @@ UTMDomainAbstraction::~UTMDomainAbstraction(void)
 }
 
 double UTMDomainAbstraction::getGlobalReward(){
-	return 0.0; // REPLACE THIS LATER
+	return -conflict_count; // REPLACE THIS LATER
 }
 
 matrix1d UTMDomainAbstraction::getPerformance(){
@@ -130,6 +132,18 @@ void UTMDomainAbstraction::incrementUAVPath(){
 
 void UTMDomainAbstraction::detectConflicts(){
 	// count the over capacity here
+
+	matrix2d cap = sector_capacity;
+	for (std::shared_ptr<UAV> &u: UAVs){
+		cap[getSector(u->loc)][u->type_ID]--;
+	}
+	for (int i=0; i<cap.size(); i++){
+		for (int j=0; j<cap[i].size(); j++){
+			if (cap[i][j]<0){ // only count the amount over the capacity
+				conflict_count += abs(cap[i][j]);
+			}
+		}
+	}
 }
 
 void UTMDomainAbstraction::getPathPlans(){
@@ -138,7 +152,6 @@ void UTMDomainAbstraction::getPathPlans(){
 		int memstart = membership_map->at(u->loc.x,u->loc.y);
 		int memend = membership_map->at(u->end_loc.x,u->end_loc.y);
 		u->planAbstractPath(connection_time,memstart, memend);
-		int memnext = u->nextSectorID();
 	}
 }
 

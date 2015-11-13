@@ -13,6 +13,7 @@ public:
 	
 	matrix2d connection_time; // time of UAV for each connection (regardless of type)
 	matrix3d connection_capacity; // capacity for each type of UAV [connection][connection][type]
+	matrix2d sector_capacity; // for the other type of reporting: [agent][type]
 	
 	matrix1d getDifferenceReward();
 	double getDifferenceReward(int i); // get a specific difference reward for an agent
