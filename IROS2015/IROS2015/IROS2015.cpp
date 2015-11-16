@@ -48,6 +48,18 @@ void program(int calls, MultiagentTypeNE::TypeHandling sim_mode, std::string rwd
 	NeuroEvoParameters* NE_params = new NeuroEvoParameters(domain->n_state_elements,domain->n_control_elements);
 	//new MultiagentTypeNE(n_agents,NE_params,type_mode,n_types);
 	MultiagentTypeNE* MAS = new MultiagentTypeNE(domain->n_agents, NE_params, sim_mode,domain->n_types);
+
+/*	int ind=0;
+	for (IAgent* i:MAS->agents){
+		string fileout = "Agent";
+		string ind_str = to_string(ind++);
+		fileout.append(ind_str);
+		fileout.append(".csv");
+		((NeuroEvo*)i)->save(fileout);
+		((NeuroEvo*)i)->load(fileout);
+	}
+	exit(1);*/
+
 	// END FOR DEBUGGING
 
 	SimTypeNE sim(domain, MAS, sim_mode); // FOR DEBUGGING
@@ -90,8 +102,6 @@ std::string conflict_names[MultiagentTypeNE::TypeHandling::NMODES] = {
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	system("pause");
-	return 0;
 	metaprog();
 	_CrtDumpMemoryLeaks(); // memory leak checking
 	system("pause");
