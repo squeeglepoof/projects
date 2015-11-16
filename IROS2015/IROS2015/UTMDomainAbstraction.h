@@ -31,5 +31,7 @@ public:
 	virtual void getPathPlans(std::list<std::shared_ptr<UAV> > &new_UAVs);
 	virtual void exportLog(std::string fid, double G);
 	virtual void reset();
+
+	matrix1d traffic_log;
 };
 

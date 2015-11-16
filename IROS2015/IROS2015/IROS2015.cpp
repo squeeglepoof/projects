@@ -38,7 +38,7 @@
 
 
 void program(int calls, MultiagentTypeNE::TypeHandling sim_mode, std::string rwd_name, std::string conflict_name){
-	//srand(time(NULL));
+	srand(time(NULL));
 	//ATFMSectorDomain* domain = new ATFMSectorDomain(false);
 	UTMDomainAbstraction* domain = new UTMDomainAbstraction(true);
 
@@ -49,16 +49,15 @@ void program(int calls, MultiagentTypeNE::TypeHandling sim_mode, std::string rwd
 	//new MultiagentTypeNE(n_agents,NE_params,type_mode,n_types);
 	MultiagentTypeNE* MAS = new MultiagentTypeNE(domain->n_agents, NE_params, sim_mode,domain->n_types);
 
-/*	int ind=0;
+	int ind=0;
 	for (IAgent* i:MAS->agents){
 		string fileout = "Agent";
 		string ind_str = to_string(ind++);
 		fileout.append(ind_str);
 		fileout.append(".csv");
-		((NeuroEvo*)i)->save(fileout);
+		//((NeuroEvo*)i)->save(fileout);
 		((NeuroEvo*)i)->load(fileout);
 	}
-	exit(1);*/
 
 	// END FOR DEBUGGING
 

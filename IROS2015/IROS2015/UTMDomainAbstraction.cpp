@@ -137,17 +137,20 @@ void UTMDomainAbstraction::detectConflicts(){
 	for (std::shared_ptr<UAV> &u: UAVs){
 		cap[getSector(u->loc)][u->type_ID]--;
 	}
+
+	int current_conflicts = 0;
 	for (int i=0; i<cap.size(); i++){
 		for (int j=0; j<cap[i].size(); j++){
 			if (cap[i][j]<0){ // only count the amount over the capacity
 				conflict_count += abs(cap[i][j]);
+				current_conflicts += abs(cap[i][j]);
 			}
 		}
 	}
 	
 	//printf("conflicts=%f\n",double(conflict_count));
 
-
+	traffic_log.push_back(current_conflicts);
 }
 
 void UTMDomainAbstraction::getPathPlans(){
@@ -169,7 +172,8 @@ void UTMDomainAbstraction::getPathPlans(std::list<std::shared_ptr<UAV> > &new_UA
 }
 
 void UTMDomainAbstraction::exportLog(std::string fid, double G){
-	 // LEFT BLANK
+	PrintOut::toFile1D(traffic_log,"traffic_log.csv");
+	exit(1);
 }
 
 void UTMDomainAbstraction::reset(){
