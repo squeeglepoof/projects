@@ -48,7 +48,7 @@ void program(int calls, MultiagentTypeNE::TypeHandling sim_mode, std::string rwd
 	NeuroEvoParameters* NE_params = new NeuroEvoParameters(domain->n_state_elements,domain->n_control_elements);
 	//new MultiagentTypeNE(n_agents,NE_params,type_mode,n_types);
 	MultiagentTypeNE* MAS = new MultiagentTypeNE(domain->n_agents, NE_params, sim_mode,domain->n_types);
-
+	/*
 	int ind=0;
 	for (IAgent* i:MAS->agents){
 		string fileout = "Agent";
@@ -57,7 +57,7 @@ void program(int calls, MultiagentTypeNE::TypeHandling sim_mode, std::string rwd
 		fileout.append(".csv");
 		//((NeuroEvo*)i)->save(fileout);
 		((NeuroEvo*)i)->load(fileout);
-	}
+	}*/
 
 	// END FOR DEBUGGING
 

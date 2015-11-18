@@ -4,9 +4,11 @@
 UTMDomainAbstraction::UTMDomainAbstraction(bool deterministic):
 	ATFMSectorDomain(deterministic, true) 
 {
-
+	for (int i=0; i<sectors->size(); i++){
+		sectors->at(i).conflicts = vector<int>(4,0);
+	}
 	rewardType = GLOBAL;
-
+	
 	// Planning
 	planners = new AStarManager(UAV::NTYPES, edges,membership_map, agent_locs,true); //NOTE: MAY NOT HAVE TO MAKE A DIFFERENT ONE FOR ABSTRACTION???
 
@@ -36,72 +38,24 @@ matrix1d UTMDomainAbstraction::getPerformance(){
 }
 
 matrix1d UTMDomainAbstraction::getDifferenceReward(){
+	// REMOVE THE AGENT FROM THE SYSTEM
 	
-	matrix1d D;
-	/*
-	matrix3d l = getLoads();
-	matrix1d D = matrix1d(n_agents);
-	matrix3d c = connection_capacity;
+	matrix1d D(n_agents,0.0);
 	
-	for (int i=0; i<n_agents; i++){
-		double oc1 = 0.0;
-		double oc2 = 0.0;
-		for (int a=0; a<n_agents; a++){
-			for (int t=0; t<UAV::NTYPES; t++){
-				if (l[a][i][t]>c[a][i][t])
-					oc1 += l[a][i][t] - c[a][i][t];
-				if (sectors->at(i).average_load(a,t)>c[a][i][t])
-					oc2 += sectors->at(i).average_load(a,t);// - c[a][i][t];
-			}
+	// METHOD 1: INFINITE LINK COSTS (*resim)
+	// METHOD 2: STATIC LINK COSTS (*resim)
+	// METHOD 3: HAND-CODED LINK COSTS (*resim)
+	// METHOD 4: DOWNSTREAM EFFECTS REMOVED
+	// METHOD 5: UPSTREAM AND DOWNSTREAM EFFECTS REMOVED
+	// METHOD 6: RANDOM TRAFFIC REALLOCATION
+	// METHOD 7: CONFLICTS AVERAGED OVER THE NODE'S HISTORY
+	// METHOD 8: LOCAL REWARD (DIFFERENCE FROM LINEAR REWARD)
+	for (int i=0; i<sectors->size(); i++){
+		for (int j=0; j<UAV::NTYPES; j++){
+			D[i] += sectors->at(i).conflicts[j];
 		}
-		D[i] = -(oc1*oc1 + oc2*oc2);
-	}*/
-
-	/*vector<Demographics> oldLoads = getLoads(); // get the current loads on all sectors
-	vector<vector<Demographics> > allloads = vector<vector<Demographics> >(n_agents); // agent removed, agent for load, type
-	for (unsigned int i=0; i< allloads.size(); i++){
-		allloads[i] = oldLoads;
-		allloads[i][i] = Demographics(UAV::NTYPES,0); // traffic removed, added back in later
-	}
-
-	// Count the adjusted load
-	for(Sector s: *sectors){
-		
-		
-		// build the map with the blacked-out sector
-		planners->blockSector(s.sectorID);
-
-		//for (std::shared_ptr<UAV> &u: s.toward){
-		for (std::shared_ptr<UAV> &u : UAVs){
-			// plan a path using a generic A* with modified weights
-			int sid = s.sectorID;
-			int oldsector = u->nextSectorID();
-			if (sid!=oldsector) continue;
-
-			int newnextsector = u->getBestPath(membership_map->at(u->loc.x,u->loc.y), membership_map->at(u->end_loc.x,u->end_loc.y)).front();
-			allloads[s.sectorID][newnextsector][u->type_ID]++;
-		}
-		planners->unblockSector(); // reset the cost maps
-		
 	}
 	
-
-	// Calculate D from counterfactual
-	vector<Demographics> C = vector<Demographics>(n_agents);// capacities[agent, type]
-	for (Demographics &c: C){
-		c = Demographics(UAV::NTYPES,0);
-	}
-	matrix1d D = matrix1d(n_agents);
-	double G_reg = G(oldLoads,C);
-
-	conflict_count = G_reg;
-
-	for (int i=0; i<n_agents; i++){
-		double G_c = G(allloads[i],C);
-		D[i] = G_reg-G_c;
-	}
-	*/ 
-
 	return D;
 }
 
@@ -144,6 +98,7 @@ void UTMDomainAbstraction::detectConflicts(){
 			if (cap[i][j]<0){ // only count the amount over the capacity
 				conflict_count += abs(cap[i][j]);
 				current_conflicts += abs(cap[i][j]);
+				sectors->at(i).conflicts[j]++;
 			}
 		}
 	}
@@ -180,4 +135,7 @@ void UTMDomainAbstraction::reset(){
 	UAVs.clear();
 	planners->reset();
 	conflict_count = 0;
+	for (int i=0; i<sectors->size(); i++){
+		sectors->at(i).conflicts = vector<int>(4,0);
+	}
 }

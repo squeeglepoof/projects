@@ -1,7 +1,7 @@
 % Plots the blind conflict with error bars
 function [vals, avg, err] = load5files(fname)
 
-num_vals = 5;
+num_vals = 30;
 
 vals = [];
 for i=0:(num_vals-1)
