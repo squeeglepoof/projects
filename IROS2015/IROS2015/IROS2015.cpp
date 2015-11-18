@@ -87,7 +87,7 @@ std::string conflict_names[MultiagentTypeNE::TypeHandling::NMODES] = {
 /**/
 //int r=0;
 //int i=0;*/
-	for (int r=0; r<30; r++){
+	for (int r=0; r<5; r++){
 		printf("************* RUN %i STARTING ***********\n",r);
 //#pragma omp parallel for
 		//for (int i=0; i<MultiagentTypeNE::NMODES; i++){

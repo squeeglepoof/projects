@@ -7,7 +7,9 @@ public:
 	UTMDomainAbstraction(bool deterministic);
 	~UTMDomainAbstraction(void);
 	enum CongestionMode{SECTOR, LINK}; // setting
+	enum GraphMode{STATIC, GENERATED}; // setting for whether to use an arbitrarily generated graph or a static one
 	int cmode; // the mode for congestion accounting
+	int gmode;
 
 	std::vector<std::vector<int> > edge_time; // time that you need to be on an edge
 	
@@ -16,7 +18,6 @@ public:
 	matrix2d sector_capacity; // for the other type of reporting: [agent][type]
 	
 	matrix1d getDifferenceReward();
-	double getDifferenceReward(int i); // get a specific difference reward for an agent
 	double getGlobalReward();
 		
 	enum {GLOBAL, DIFFERENCE};
