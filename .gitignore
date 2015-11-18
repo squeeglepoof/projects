@@ -55,3 +55,7 @@ Sandbox/Debug/Sandbox.exe
 *.exe
 *.exe
 IROS2015/IROS2015/log0
+*.fig
+IROS2015/IROS2015/agent_map/phys_connection_bold.png
+*.png
+IROS2015/Release/IROS2015.exe

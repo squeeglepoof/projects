@@ -29,8 +29,8 @@ agent_map = [mapx,mapy];
     
 
 % Export obstacle and agent map
-csvwrite('obstacle_map.csv',obstacle_map);
-csvwrite('agent_map.csv',agent_map);
+%csvwrite('obstacle_map.csv',obstacle_map);
+%csvwrite('agent_map.csv',agent_map);
 
 
 %% START FROM HERE IF YOU DON'T WANT TO RE-PICK POINTS
@@ -70,7 +70,7 @@ membermap = reshape(I,size(obstacle_map,1),size(obstacle_map,2));
 membership = membermap;
 membermap = (membermap-min(min(membermap)))/(max(max(membermap))-min(min(membermap)));
 
-csvwrite('membership_map.csv',membership-1);
+%csvwrite('membership_map.csv',membership-1);
 
 imshow(membermap)
 hold on
@@ -173,10 +173,10 @@ end
 
 hold on
 %LineSpec('m', 'LineWidth', 4);
-gplot(connections,agent_map, 'm')
+gplot(connections,agent_map)
 h=findobj('type','line');
 set(h,'linewidth',4)
-csvwrite('connections.csv',connections);
+%csvwrite('connections.csv',connections);
 
 %% Create fixes in space
 
@@ -200,7 +200,7 @@ hold on
 scatter(fixes(:,1),fixes(:,2),'c*')
 
 %fixes = fixes-1;
-csvwrite('fixes.csv',fixes)
+%csvwrite('fixes.csv',fixes)
 
 %%  
 
