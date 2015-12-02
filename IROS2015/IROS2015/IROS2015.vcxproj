@@ -82,11 +82,12 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\libraries\Domains\ATFMSectorDomain\ATFMSectorDomain.h" />
-    <ClInclude Include="..\..\..\libraries\Domains\ATFMSectorDomain\Fix.h" />
-    <ClInclude Include="..\..\..\libraries\Domains\ATFMSectorDomain\Sector.h" />
-    <ClInclude Include="..\..\..\libraries\Domains\ATFMSectorDomain\UAV.h" />
     <ClInclude Include="..\..\..\libraries\Domains\IDomainStateful.h" />
+    <ClInclude Include="..\..\..\libraries\Domains\UTM\Fix.h" />
+    <ClInclude Include="..\..\..\libraries\Domains\UTM\Sector.h" />
+    <ClInclude Include="..\..\..\libraries\Domains\UTM\UAV.h" />
+    <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMDomainAbstract.h" />
+    <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMDomainDetail.h" />
     <ClInclude Include="..\..\..\libraries\FileIO\easyio\easyio.h" />
     <ClInclude Include="..\..\..\libraries\Math\easymath.h" />
     <ClInclude Include="..\..\..\libraries\Multiagent\IMultiagentSystem.h" />
@@ -105,14 +106,14 @@
     <ClInclude Include="RewardAnalysis.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="UTMDomainAbstraction.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\libraries\Domains\ATFMSectorDomain\ATFMSectorDomain.cpp" />
-    <ClCompile Include="..\..\..\libraries\Domains\ATFMSectorDomain\Fix.cpp" />
-    <ClCompile Include="..\..\..\libraries\Domains\ATFMSectorDomain\Sector.cpp" />
-    <ClCompile Include="..\..\..\libraries\Domains\ATFMSectorDomain\UAV.cpp" />
     <ClCompile Include="..\..\..\libraries\Domains\IDomainStateful.cpp" />
+    <ClCompile Include="..\..\..\libraries\Domains\UTM\Fix.cpp" />
+    <ClCompile Include="..\..\..\libraries\Domains\UTM\Sector.cpp" />
+    <ClCompile Include="..\..\..\libraries\Domains\UTM\UAV.cpp" />
+    <ClCompile Include="..\..\..\libraries\Domains\UTM\UTMDomainAbstract.cpp" />
+    <ClCompile Include="..\..\..\libraries\Domains\UTM\UTMDomainDetail.cpp" />
     <ClCompile Include="..\..\..\libraries\FileIO\easyio\easyio.cpp" />
     <ClCompile Include="..\..\..\libraries\Math\easymath.cpp" />
     <ClCompile Include="..\..\..\libraries\Multiagent\IMultiagentSystem.cpp" />
@@ -133,7 +134,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="UTMDomainAbstraction.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

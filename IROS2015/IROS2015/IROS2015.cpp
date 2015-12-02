@@ -30,8 +30,8 @@
 // Project-specific includes
 //#include "../../../libraries/Simulation/SimNE.h"
 #include "../../../libraries/Simulation/SimTypeNE.h"
-#include "../../../libraries/Domains/ATFMSectorDomain/ATFMSectorDomain.h"
-#include "UTMDomainAbstraction.h"
+#include "../../../libraries/Domains/UTM/UTMDomainDetail.h"
+#include "../../../libraries/Domains/UTM/UTMDomainAbstract.h"
 
 
 
@@ -39,14 +39,9 @@
 
 void program(int calls, MultiagentTypeNE::TypeHandling sim_mode, std::string rwd_name, std::string conflict_name){
 	srand(time(NULL));
-	//ATFMSectorDomain* domain = new ATFMSectorDomain(false);
-	UTMDomainAbstraction* domain = new UTMDomainAbstraction(true);
-
-	// FOR DEBUGGING
-	
+	UTMDomainAbstract* domain = new UTMDomainAbstract();
 
 	NeuroEvoParameters* NE_params = new NeuroEvoParameters(domain->n_state_elements,domain->n_control_elements);
-	//new MultiagentTypeNE(n_agents,NE_params,type_mode,n_types);
 	MultiagentTypeNE* MAS = new MultiagentTypeNE(domain->n_agents, NE_params, sim_mode,domain->n_types);
 	/*
 	int ind=0;
@@ -66,7 +61,7 @@ void program(int calls, MultiagentTypeNE::TypeHandling sim_mode, std::string rwd
 
 	sim.outputRewardLog(rwd_name+to_string(calls)+".txt");
 	sim.outputMetricLog(conflict_name+to_string(calls)+".txt");
-	delete ((ATFMSectorDomain*)domain);
+	delete ((UTMDomainAbstract*)domain);
 
 }
 

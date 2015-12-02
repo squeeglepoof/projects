@@ -42,9 +42,6 @@
     <ClInclude Include="..\..\..\libraries\SingleAgent\IAgent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Domains\ATFMSectorDomain\ATFMSectorDomain.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\libraries\Domains\IDomainStateful.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -75,19 +72,22 @@
     <ClInclude Include="..\..\..\libraries\Planning\AStarManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Domains\ATFMSectorDomain\Fix.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Domains\ATFMSectorDomain\Sector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Domains\ATFMSectorDomain\UAV.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UTMDomainAbstraction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="RewardAnalysis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMDomainDetail.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Domains\UTM\Sector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMDomainAbstract.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Domains\UTM\UAV.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Domains\UTM\Fix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -114,9 +114,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Domains\ATFMSectorDomain\ATFMSectorDomain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\libraries\Domains\IDomainStateful.cpp">
@@ -146,19 +143,22 @@
     <ClCompile Include="..\..\..\libraries\Planning\AStarManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Domains\ATFMSectorDomain\Fix.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Domains\ATFMSectorDomain\Sector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Domains\ATFMSectorDomain\UAV.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UTMDomainAbstraction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="RewardAnalysis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Domains\UTM\UTMDomainDetail.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Domains\UTM\UTMDomainAbstract.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Domains\UTM\UAV.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Domains\UTM\Fix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Domains\UTM\Sector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
