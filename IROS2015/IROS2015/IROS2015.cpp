@@ -38,7 +38,7 @@
 
 
 void program(int calls, MultiagentTypeNE::TypeHandling sim_mode, std::string rwd_name, std::string conflict_name){
-	srand(time(NULL));
+	srand(unsigned int(time(NULL)));
 	UTMDomainAbstract* domain = new UTMDomainAbstract();
 
 	NeuroEvoParameters* NE_params = new NeuroEvoParameters(domain->n_state_elements,domain->n_control_elements);

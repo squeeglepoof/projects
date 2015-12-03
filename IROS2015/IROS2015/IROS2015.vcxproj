@@ -103,6 +103,7 @@
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeCrossweighted.h" />
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeWeighted.h" />
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\TypeNeuroEvo.h" />
+    <ClInclude Include="AirspaceMap.h" />
     <ClInclude Include="RewardAnalysis.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -128,6 +129,7 @@
     <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeCrossweighted.cpp" />
     <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeWeighted.cpp" />
     <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\TypeNeuroEvo.cpp" />
+    <ClCompile Include="AirspaceMap.cpp" />
     <ClCompile Include="IROS2015.cpp" />
     <ClCompile Include="RewardAnalysis.cpp" />
     <ClCompile Include="stdafx.cpp">

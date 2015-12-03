@@ -13,6 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Learning">
+      <UniqueIdentifier>{105e802f-9abb-491e-be79-3b8644f835ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Planning">
+      <UniqueIdentifier>{3d319902-717e-44cb-b38f-34263895d7b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Domain">
+      <UniqueIdentifier>{56190f92-6241-4772-880c-7d5f3084c0f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Simulation">
+      <UniqueIdentifier>{f2100b57-9b33-4ac2-b594-34d52f7242a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Domain\Assistants">
+      <UniqueIdentifier>{559395e6-d506-4a23-a618-e69a319715da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -24,71 +39,74 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Math\easymath.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentNE.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libraries\SingleAgent\NeuralNet\NeuralNet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Multiagent\IMultiagentSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libraries\SingleAgent\IAgent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Domains\IDomainStateful.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libraries\FileIO\easyio\easyio.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Simulation\SimTypeNE.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Simulation\SimNE.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeWeighted.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Learning</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeCrossweighted.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Learning</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\TypeNeuroEvo.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvo.h">
+      <Filter>Header Files\Learning</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\libraries\SingleAgent\NeuralNet\TypeNeuralNet.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\libraries\SingleAgent\NeuralNet\NeuralNet.h">
+      <Filter>Header Files\Learning</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentNE.h">
+      <Filter>Header Files\Learning</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.h">
+      <Filter>Header Files\Learning</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\libraries\Planning\AStarManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Planning</Filter>
     </ClInclude>
-    <ClInclude Include="RewardAnalysis.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMDomainDetail.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Domains\UTM\Sector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMDomainAbstract.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Domains\UTM\UAV.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="AirspaceMap.h">
+      <Filter>Header Files\Domain</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\libraries\Domains\UTM\Fix.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Domain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Domains\IDomainStateful.h">
+      <Filter>Header Files\Domain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Domains\UTM\Sector.h">
+      <Filter>Header Files\Domain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\SingleAgent\NeuralNet\TypeNeuralNet.h">
+      <Filter>Header Files\Learning</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\TypeNeuroEvo.h">
+      <Filter>Header Files\Learning</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Domains\UTM\UAV.h">
+      <Filter>Header Files\Domain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMDomainAbstract.h">
+      <Filter>Header Files\Domain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMDomainDetail.h">
+      <Filter>Header Files\Domain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Simulation\SimNE.h">
+      <Filter>Header Files\Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Simulation\SimTypeNE.h">
+      <Filter>Header Files\Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\SingleAgent\IAgent.h">
+      <Filter>Header Files\Learning</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Multiagent\IMultiagentSystem.h">
+      <Filter>Header Files\Learning</Filter>
+    </ClInclude>
+    <ClInclude Include="RewardAnalysis.h">
+      <Filter>Header Files\Learning</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Math\easymath.h">
+      <Filter>Header Files\Domain\Assistants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\FileIO\easyio\easyio.h">
+      <Filter>Header Files\Domain\Assistants</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -98,68 +116,71 @@
     <ClCompile Include="IROS2015.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Math\easymath.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\..\..\libraries\Planning\AStarManager.cpp">
+      <Filter>Header Files\Planning</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Multiagent\MultiagentNE.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\SingleAgent\NeuralNet\NeuralNet.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Multiagent\IMultiagentSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\SingleAgent\IAgent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Domains\IDomainStateful.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="AirspaceMap.cpp">
+      <Filter>Header Files\Domain</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\libraries\FileIO\easyio\easyio.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\Domain\Assistants</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Simulation\SimTypeNE.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Simulation\SimNE.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeWeighted.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeCrossweighted.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\TypeNeuroEvo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Planning\AStarManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RewardAnalysis.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Domains\UTM\UTMDomainDetail.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Domains\UTM\UTMDomainAbstract.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Domains\UTM\UAV.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\..\..\libraries\Math\easymath.cpp">
+      <Filter>Header Files\Domain\Assistants</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\libraries\Domains\UTM\Fix.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\Domain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\SingleAgent\IAgent.cpp">
+      <Filter>Header Files\Learning</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Domains\IDomainStateful.cpp">
+      <Filter>Header Files\Domain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Multiagent\IMultiagentSystem.cpp">
+      <Filter>Header Files\Learning</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Multiagent\MultiagentNE.cpp">
+      <Filter>Header Files\Learning</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.cpp">
+      <Filter>Header Files\Learning</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\SingleAgent\NeuralNet\NeuralNet.cpp">
+      <Filter>Header Files\Learning</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvo.cpp">
+      <Filter>Header Files\Learning</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeCrossweighted.cpp">
+      <Filter>Header Files\Learning</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeWeighted.cpp">
+      <Filter>Header Files\Learning</Filter>
+    </ClCompile>
+    <ClCompile Include="RewardAnalysis.cpp">
+      <Filter>Header Files\Learning</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\libraries\Domains\UTM\Sector.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\Domain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Simulation\SimNE.cpp">
+      <Filter>Header Files\Planning</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Simulation\SimTypeNE.cpp">
+      <Filter>Header Files\Planning</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\TypeNeuroEvo.cpp">
+      <Filter>Header Files\Learning</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Domains\UTM\UAV.cpp">
+      <Filter>Header Files\Domain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Domains\UTM\UTMDomainAbstract.cpp">
+      <Filter>Header Files\Domain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Domains\UTM\UTMDomainDetail.cpp">
+      <Filter>Header Files\Domain</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
