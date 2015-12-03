@@ -108,6 +108,9 @@
     <ClInclude Include="..\..\..\libraries\FileIO\easyio\easyio.h">
       <Filter>Header Files\Domain\Assistants</Filter>
     </ClInclude>
+    <ClInclude Include="AirspaceGridMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -181,6 +184,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\libraries\Domains\UTM\UTMDomainDetail.cpp">
       <Filter>Header Files\Domain</Filter>
+    </ClCompile>
+    <ClCompile Include="AirspaceGridMap.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

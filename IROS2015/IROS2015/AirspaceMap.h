@@ -4,7 +4,7 @@
 #include <agents.h>
 #include "../../libraries/Math/easymath.h"
 #include "../../libraries/FileIO/easyio/easyio.h"
-#include "../../libraries/Planning/AStar_easy.h"
+#include "../../libraries/Planning/AStarAbstract.h"
 
 using namespace std;
 using namespace easymath;
@@ -62,11 +62,11 @@ public:
 	}
 
 	bool fullyConnected(){
-		AStar_easy a = AStar_easy(agentLocs,edges,matrix1d(edges.size(),1.0));
+		AStarAbstract a = AStarAbstract(agentLocs,edges,matrix1d(edges.size(),1.0));
 		
 		for (XY &loc1 : agentLocs){
 			for (XY &loc2 : agentLocs){
-				list<AStar_easy::vertex> path = a.search(loc1,loc2);
+				list<AStarAbstract::vertex> path = a.search(loc1,loc2);
 				if (path.empty()) return false;
 			}
 		}
