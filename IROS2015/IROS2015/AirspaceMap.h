@@ -62,7 +62,7 @@ public:
 	}
 
 	bool fullyConnected(){
-		AStarAbstract a = AStarAbstract(agentLocs,edges,matrix1d(edges.size(),1.0));
+		AStarAbstract a = AStarAbstract(agentLocs,edges);
 		
 		for (XY &loc1 : agentLocs){
 			for (XY &loc2 : agentLocs){

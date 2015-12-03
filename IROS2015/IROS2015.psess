@@ -36,7 +36,7 @@
   </PostinstrumentEvent>
   <Binaries>
     <ProjBinary>
-      <Path>Release\IROS2015.exe</Path>
+      <Path>Debug\IROS2015.exe</Path>
       <ArgumentTimestamp>01/01/0001 00:00:00</ArgumentTimestamp>
       <Instrument>true</Instrument>
       <Sample>true</Sample>
@@ -48,7 +48,7 @@
       <LaunchProject>true</LaunchProject>
       <OverrideProjectSettings>false</OverrideProjectSettings>
       <LaunchMethod>Executable</LaunchMethod>
-      <ExecutablePath>Release\IROS2015.exe</ExecutablePath>
+      <ExecutablePath>Debug\IROS2015.exe</ExecutablePath>
       <StartupDirectory>IROS2015\</StartupDirectory>
       <Arguments>
       </Arguments>
@@ -103,6 +103,9 @@
     </Report>
     <Report>
       <Path>IROS2015151020.vspx</Path>
+    </Report>
+    <Report>
+      <Path>IROS2015151203.vsp</Path>
     </Report>
   </Reports>
   <Launches>

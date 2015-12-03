@@ -64,7 +64,7 @@ public:
 
 class AirspaceGridMap {
 public:
-
+	~AirspaceGridMap();
 		// Exception thrown when the goal vertex is found
 	struct found_goal {};
 
