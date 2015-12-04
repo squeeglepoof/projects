@@ -96,6 +96,7 @@ std::string conflict_names[MultiagentTypeNE::TypeHandling::NMODES] = {
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+
 	metaprog();
 	_CrtDumpMemoryLeaks(); // memory leak checking
 	system("pause");

@@ -64,9 +64,9 @@ public:
 	bool fullyConnected(){
 		AStarAbstract a = AStarAbstract(agentLocs,edges);
 		
-		for (XY &loc1 : agentLocs){
-			for (XY &loc2 : agentLocs){
-				list<AStarAbstract::vertex> path = a.search(loc1,loc2);
+		for (int i=0; i<agentLocs.size(); i++){
+			for (int j=0; j<agentLocs.size(); j++){
+				list<AStarAbstract::vertex> path = a.search(i,j);
 				if (path.empty()) return false;
 			}
 		}
