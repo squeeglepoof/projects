@@ -25,7 +25,7 @@
     <Filter Include="Header Files\Simulation">
       <UniqueIdentifier>{f2100b57-9b33-4ac2-b594-34d52f7242a7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Domain\Assistants">
+    <Filter Include="Header Files\Assistants">
       <UniqueIdentifier>{559395e6-d506-4a23-a618-e69a319715da}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -103,13 +103,13 @@
       <Filter>Header Files\Learning</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\libraries\Math\easymath.h">
-      <Filter>Header Files\Domain\Assistants</Filter>
+      <Filter>Header Files\Assistants</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\libraries\FileIO\easyio\easyio.h">
-      <Filter>Header Files\Domain\Assistants</Filter>
+      <Filter>Header Files\Assistants</Filter>
     </ClInclude>
     <ClInclude Include="AirspaceGridMap.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Domain</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -126,10 +126,10 @@
       <Filter>Header Files\Domain</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\libraries\FileIO\easyio\easyio.cpp">
-      <Filter>Header Files\Domain\Assistants</Filter>
+      <Filter>Header Files\Assistants</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\libraries\Math\easymath.cpp">
-      <Filter>Header Files\Domain\Assistants</Filter>
+      <Filter>Header Files\Assistants</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\libraries\Domains\UTM\Fix.cpp">
       <Filter>Header Files\Domain</Filter>
@@ -186,7 +186,7 @@
       <Filter>Header Files\Domain</Filter>
     </ClCompile>
     <ClCompile Include="AirspaceGridMap.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\Domain</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

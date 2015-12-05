@@ -66,8 +66,8 @@ public:
 		
 		for (int i=0; i<agentLocs.size(); i++){
 			for (int j=0; j<agentLocs.size(); j++){
-				list<AStarAbstract::vertex> path = a.search(i,j);
-				if (path.empty()) return false;
+				list<int> path = a.search(i,j);
+				if (path.size()==1) return false;
 			}
 		}
 		return true;
