@@ -228,12 +228,9 @@ private:
 		return boost::make_vertex_subset_complement_filter(m_grid, m_barriers);
 	}
 
-	// The grid underlying the AirspaceGridMap
-	mt::grid m_grid;
-	// The underlying AirspaceGridMap grid with barrier vertices filtered out
-	mt::filtered_grid m_barrier_grid;
-	// The barriers in the AirspaceGridMap
-	mt::vertex_set m_barriers;
+	mt::grid m_grid; // The grid underlying the AirspaceGridMap
+	mt::filtered_grid m_barrier_grid; // The underlying AirspaceGridMap grid with barrier vertices filtered out
+	mt::vertex_set m_barriers; // The barriers in the AirspaceGridMap
 
 	
 };

@@ -57,9 +57,6 @@
     <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.h">
       <Filter>Header Files\Learning</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Planning\AStarManager.h">
-      <Filter>Header Files\Planning</Filter>
-    </ClInclude>
     <ClInclude Include="AirspaceMap.h">
       <Filter>Header Files\Domain</Filter>
     </ClInclude>
@@ -111,6 +108,15 @@
     <ClInclude Include="AirspaceGridMap.h">
       <Filter>Header Files\Domain</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Planning\TypeAStarAbstract.h">
+      <Filter>Header Files\Planning</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Planning\AStarAbstract.h">
+      <Filter>Header Files\Planning</Filter>
+    </ClInclude>
+    <ClInclude Include="SectorAStarGrid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -118,9 +124,6 @@
     </ClCompile>
     <ClCompile Include="IROS2015.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Planning\AStarManager.cpp">
-      <Filter>Header Files\Planning</Filter>
     </ClCompile>
     <ClCompile Include="AirspaceMap.cpp">
       <Filter>Header Files\Domain</Filter>
@@ -187,6 +190,12 @@
     </ClCompile>
     <ClCompile Include="AirspaceGridMap.cpp">
       <Filter>Header Files\Domain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Planning\TypeAStarAbstract.cpp">
+      <Filter>Header Files\Planning</Filter>
+    </ClCompile>
+    <ClCompile Include="SectorAStarGrid.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
