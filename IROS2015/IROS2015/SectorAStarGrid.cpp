@@ -11,7 +11,16 @@ SectorAStarGrid::SectorAStarGrid(Matrix<int,2> membership_map, vector<pair<int,i
 	}
 }
 
-
 SectorAStarGrid::~SectorAStarGrid(void)
 {
+}
+
+int SectorAStarGrid::getMembership(XY p){
+	return membership_map(p.x,p.y);
+}
+
+vector<XY> SectorAStarGrid::search(XY p1, XY p2){
+	int memstart = getMembership(p1);
+	int memnext = getMembership(p2);
+	return m2astar[memstart][memnext]->get_solution_path(p1,p2);
 }
