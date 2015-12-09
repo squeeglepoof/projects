@@ -94,6 +94,7 @@
     <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentNE.h" />
     <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.h" />
     <ClInclude Include="..\..\..\libraries\Planning\AStarAbstract.h" />
+    <ClInclude Include="..\..\..\libraries\Planning\SectorAStarGrid.h" />
     <ClInclude Include="..\..\..\libraries\Planning\TypeAStarAbstract.h" />
     <ClInclude Include="..\..\..\libraries\Simulation\SimNE.h" />
     <ClInclude Include="..\..\..\libraries\Simulation\SimTypeNE.h" />
@@ -104,10 +105,6 @@
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeCrossweighted.h" />
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeWeighted.h" />
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\TypeNeuroEvo.h" />
-    <ClInclude Include="AirspaceGridMap.h" />
-    <ClInclude Include="AirspaceMap.h" />
-    <ClInclude Include="RewardAnalysis.h" />
-    <ClInclude Include="SectorAStarGrid.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -123,6 +120,7 @@
     <ClCompile Include="..\..\..\libraries\Multiagent\IMultiagentSystem.cpp" />
     <ClCompile Include="..\..\..\libraries\Multiagent\MultiagentNE.cpp" />
     <ClCompile Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.cpp" />
+    <ClCompile Include="..\..\..\libraries\Planning\SectorAStarGrid.cpp" />
     <ClCompile Include="..\..\..\libraries\Planning\TypeAStarAbstract.cpp" />
     <ClCompile Include="..\..\..\libraries\Simulation\SimNE.cpp" />
     <ClCompile Include="..\..\..\libraries\Simulation\SimTypeNE.cpp" />
@@ -132,11 +130,7 @@
     <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeCrossweighted.cpp" />
     <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeWeighted.cpp" />
     <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\TypeNeuroEvo.cpp" />
-    <ClCompile Include="AirspaceGridMap.cpp" />
-    <ClCompile Include="AirspaceMap.cpp" />
     <ClCompile Include="IROS2015.cpp" />
-    <ClCompile Include="RewardAnalysis.cpp" />
-    <ClCompile Include="SectorAStarGrid.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

@@ -57,9 +57,6 @@
     <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.h">
       <Filter>Header Files\Learning</Filter>
     </ClInclude>
-    <ClInclude Include="AirspaceMap.h">
-      <Filter>Header Files\Domain</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\libraries\Domains\UTM\Fix.h">
       <Filter>Header Files\Domain</Filter>
     </ClInclude>
@@ -96,17 +93,11 @@
     <ClInclude Include="..\..\..\libraries\Multiagent\IMultiagentSystem.h">
       <Filter>Header Files\Learning</Filter>
     </ClInclude>
-    <ClInclude Include="RewardAnalysis.h">
-      <Filter>Header Files\Learning</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\libraries\Math\easymath.h">
       <Filter>Header Files\Assistants</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\libraries\FileIO\easyio\easyio.h">
       <Filter>Header Files\Assistants</Filter>
-    </ClInclude>
-    <ClInclude Include="AirspaceGridMap.h">
-      <Filter>Header Files\Domain</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\libraries\Planning\TypeAStarAbstract.h">
       <Filter>Header Files\Planning</Filter>
@@ -114,8 +105,8 @@
     <ClInclude Include="..\..\..\libraries\Planning\AStarAbstract.h">
       <Filter>Header Files\Planning</Filter>
     </ClInclude>
-    <ClInclude Include="SectorAStarGrid.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\libraries\Planning\SectorAStarGrid.h">
+      <Filter>Header Files\Planning</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -124,9 +115,6 @@
     </ClCompile>
     <ClCompile Include="IROS2015.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AirspaceMap.cpp">
-      <Filter>Header Files\Domain</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\libraries\FileIO\easyio\easyio.cpp">
       <Filter>Header Files\Assistants</Filter>
@@ -164,9 +152,6 @@
     <ClCompile Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeWeighted.cpp">
       <Filter>Header Files\Learning</Filter>
     </ClCompile>
-    <ClCompile Include="RewardAnalysis.cpp">
-      <Filter>Header Files\Learning</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\libraries\Domains\UTM\Sector.cpp">
       <Filter>Header Files\Domain</Filter>
     </ClCompile>
@@ -188,14 +173,11 @@
     <ClCompile Include="..\..\..\libraries\Domains\UTM\UTMDomainDetail.cpp">
       <Filter>Header Files\Domain</Filter>
     </ClCompile>
-    <ClCompile Include="AirspaceGridMap.cpp">
-      <Filter>Header Files\Domain</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\libraries\Planning\TypeAStarAbstract.cpp">
       <Filter>Header Files\Planning</Filter>
     </ClCompile>
-    <ClCompile Include="SectorAStarGrid.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\..\..\libraries\Planning\SectorAStarGrid.cpp">
+      <Filter>Header Files\Planning</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
