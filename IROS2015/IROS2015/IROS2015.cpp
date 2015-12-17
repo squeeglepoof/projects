@@ -26,27 +26,41 @@
 #include "stdafx.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <direct.h>
+
 
 // Project-specific includes
-//#include "../../../libraries/Simulation/SimNE.h"
 #include "../../../libraries/Simulation/SimTypeNE.h"
 #include "../../../libraries/Domains/UTM/UTMDomainDetail.h"
 #include "../../../libraries/Domains/UTM/UTMDomainAbstract.h"
 
 
-void loopOverTypeHandling(){
+std::string typefilenames[MultiagentTypeNE::TypeHandling::NMODES] = {
+	"blind-",
+	"weighted-",
+	"crossweighted-",
+	"multimind-",
+};
+
+/*void loopOverTypeHandling(){
+	// TODO: DIRECTORY NAMING CONVENTION
+	//std::string dirname = "stat_results/";
+	//_mkdir(dirname.c_str());
+
+	//string dir = EXPERIMENT_FOLDER+dirname;
+
 	std::string rwd_names[MultiagentTypeNE::TypeHandling::NMODES] = {
-		"stat_results/blind_reward-",
-		"stat_results/weighted_reward-",
-		"stat_results/crossweighted_reward-",
-		"stat_results/multimind_reward-",
+		"blind_reward-",
+		"weighted_reward-",
+		"crossweighted_reward-",
+		"multimind_reward-",
 	};
 
 	std::string conflict_names[MultiagentTypeNE::TypeHandling::NMODES] = {
-		"stat_results/blind_conflict-",
-		"stat_results/weighted_conflict-",
-		"stat_results/crossweighted_conflict-",
-		"stat_results/multimind_conflict-",
+		"blind_conflict-",
+		"weighted_conflict-",
+		"crossweighted_conflict-",
+		"multimind_conflict-",
 	};
 
 	for (int i=0; i<MultiagentTypeNE::NMODES; i++){
@@ -66,7 +80,7 @@ void loopOverTypeHandling(){
 			delete ((UTMDomainAbstract*)domain);
 		}
 	}
-}
+}*/
 
 
 vector<int> consecutive(int a, int b){
@@ -76,10 +90,10 @@ vector<int> consecutive(int a, int b){
 	return v;
 }
 
-void loopOverDomainParameters(std::string* fileoutnames, void domainChanger(UTMDomainAbstract*, int val), int nparams){
+void loopOverDomainParameters(void domainChanger(UTMDomainAbstract*, int val), int nparams){
 	vector<int> vals = consecutive(0,nparams-1); // meant for use with enums
-	for (int r=0; r<5; r++){
-		for (int val : vals){
+	for (int val : vals){
+		for (int r=0; r<5; r++){
 			printf("RUN %i STARING \n",r);
 			srand(unsigned int(time(NULL)));
 			UTMDomainAbstract* domain = new UTMDomainAbstract();
@@ -91,7 +105,7 @@ void loopOverDomainParameters(std::string* fileoutnames, void domainChanger(UTMD
 			SimTypeNE sim(domain, MAS, MultiagentTypeNE::BLIND);
 			sim.runExperiment();
 
-			sim.outputMetricLog(fileoutnames[val]+to_string(r)+".csv");
+			sim.outputMetricLog(typefilenames[MAS->type_mode]+to_string(r)+".csv");
 			delete ((UTMDomainAbstract*)domain);
 		}
 	}
@@ -102,23 +116,31 @@ void rwdChanger(UTMDomainAbstract* domain, int rwd){
 }
 
 void loopOverRewardTypes(){
-	std::string rwd_names[UTMDomainAbstract::RewardMode::NMODES] = {
-		"stat_results/GLOBAL-", 
-		"stat_results/DIFFERENCE_DOWNSTREAM-",
-		"stat_results/DIFFERENCE_TOUCHED-",
-		"stat_results/DIFFERENCE_REALLOC-",
-		"stat_results/DIFFERENCE_AVG-",
-	};
-
-	loopOverDomainParameters(rwd_names, rwdChanger, UTMDomainAbstract::RewardMode::NMODES);
+	loopOverDomainParameters(rwdChanger, UTMDomainAbstract::RewardMode::NMODES);
 }
 
 
+void detailedSim(){
+	srand(unsigned int(time(NULL)));
+	UTMDomainDetail* domain = new UTMDomainDetail();
+
+	NeuroEvoParameters* NE_params = new NeuroEvoParameters(domain->n_state_elements,domain->n_control_elements);
+	MultiagentTypeNE* MAS = new MultiagentTypeNE(domain->n_agents, NE_params, MultiagentTypeNE::BLIND,domain->n_types);
+
+	SimTypeNE sim(domain, MAS, MultiagentTypeNE::BLIND);
+	sim.runExperiment();
+
+	sim.outputMetricLog("detailsim.csv");
+	delete ((UTMDomainAbstract*)domain);
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
+	_mkdir(EXPERIMENT_FOLDER);
+	//detailedSim();
 	loopOverRewardTypes();
 	_CrtDumpMemoryLeaks(); // memory leak checking
-	system("pause");
+	std::system("pause");
 	return 0;
 }
 
