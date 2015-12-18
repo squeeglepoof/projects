@@ -115,6 +115,22 @@ void rwdChanger(UTMDomainAbstract* domain, int rwd){
 	domain->_reward_mode = UTMDomainAbstract::RewardMode(rwd);
 }
 
+void nAgentChanger(UTMDomainAbstract* domain, int nAgents){
+	domain->_nagents_mode = UTMDomainAbstract::AgentNumberMode(nAgents);
+}
+
+void capacityChanger(UTMDomainAbstract* domain, int capacity){
+	domain->_capacity_mode = UTMDomainAbstract::CapacityMode(capacity);
+}
+
+void loopOverCapacity(){
+	loopOverDomainParameters(capacityChanger, UTMDomainAbstract::CapacityMode::NCAPACITYMODES);
+}
+
+void loopOverNAgents(){
+	loopOverDomainParameters(nAgentChanger,UTMDomainAbstract::AgentNumberMode::NAGENTNUMBERS);
+}
+
 void loopOverRewardTypes(){
 	loopOverDomainParameters(rwdChanger, UTMDomainAbstract::RewardMode::NMODES);
 }
@@ -137,8 +153,7 @@ void detailedSim(){
 int _tmain(int argc, _TCHAR* argv[])
 {
 	_mkdir(EXPERIMENT_FOLDER);
-	//detailedSim();
-	loopOverRewardTypes();
+	loopOverCapacity();
 	_CrtDumpMemoryLeaks(); // memory leak checking
 	std::system("pause");
 	return 0;

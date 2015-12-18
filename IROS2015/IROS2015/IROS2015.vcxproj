@@ -93,9 +93,10 @@
     <ClInclude Include="..\..\..\libraries\Multiagent\IMultiagentSystem.h" />
     <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentNE.h" />
     <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.h" />
-    <ClInclude Include="..\..\..\libraries\Planning\AStarAbstract.h" />
-    <ClInclude Include="..\..\..\libraries\Planning\SectorAStarGrid.h" />
-    <ClInclude Include="..\..\..\libraries\Planning\TypeAStarAbstract.h" />
+    <ClInclude Include="..\..\..\libraries\Planning\GridGraph.h" />
+    <ClInclude Include="..\..\..\libraries\Planning\LinkGraph.h" />
+    <ClInclude Include="..\..\..\libraries\Planning\SectorGraphManager.h" />
+    <ClInclude Include="..\..\..\libraries\Planning\TypeGraphmanager.h" />
     <ClInclude Include="..\..\..\libraries\Simulation\SimNE.h" />
     <ClInclude Include="..\..\..\libraries\Simulation\SimTypeNE.h" />
     <ClInclude Include="..\..\..\libraries\SingleAgent\IAgent.h" />
@@ -120,8 +121,8 @@
     <ClCompile Include="..\..\..\libraries\Multiagent\IMultiagentSystem.cpp" />
     <ClCompile Include="..\..\..\libraries\Multiagent\MultiagentNE.cpp" />
     <ClCompile Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.cpp" />
-    <ClCompile Include="..\..\..\libraries\Planning\SectorAStarGrid.cpp" />
-    <ClCompile Include="..\..\..\libraries\Planning\TypeAStarAbstract.cpp" />
+    <ClCompile Include="..\..\..\libraries\Planning\SectorGraphManager.cpp" />
+    <ClCompile Include="..\..\..\libraries\Planning\TypeGraphManager.cpp" />
     <ClCompile Include="..\..\..\libraries\Simulation\SimNE.cpp" />
     <ClCompile Include="..\..\..\libraries\Simulation\SimTypeNE.cpp" />
     <ClCompile Include="..\..\..\libraries\SingleAgent\IAgent.cpp" />

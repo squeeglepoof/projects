@@ -99,13 +99,16 @@
     <ClInclude Include="..\..\..\libraries\FileIO\easyio\easyio.h">
       <Filter>Header Files\Assistants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Planning\TypeAStarAbstract.h">
+    <ClInclude Include="..\..\..\libraries\Planning\LinkGraph.h">
       <Filter>Header Files\Planning</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Planning\AStarAbstract.h">
+    <ClInclude Include="..\..\..\libraries\Planning\SectorGraphManager.h">
       <Filter>Header Files\Planning</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\libraries\Planning\SectorAStarGrid.h">
+    <ClInclude Include="..\..\..\libraries\Planning\TypeGraphmanager.h">
+      <Filter>Header Files\Planning</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Planning\GridGraph.h">
       <Filter>Header Files\Planning</Filter>
     </ClInclude>
   </ItemGroup>
@@ -173,10 +176,10 @@
     <ClCompile Include="..\..\..\libraries\Domains\UTM\UTMDomainDetail.cpp">
       <Filter>Header Files\Domain</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Planning\TypeAStarAbstract.cpp">
+    <ClCompile Include="..\..\..\libraries\Planning\SectorGraphManager.cpp">
       <Filter>Header Files\Planning</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\libraries\Planning\SectorAStarGrid.cpp">
+    <ClCompile Include="..\..\..\libraries\Planning\TypeGraphManager.cpp">
       <Filter>Header Files\Planning</Filter>
     </ClCompile>
   </ItemGroup>
