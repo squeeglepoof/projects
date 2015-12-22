@@ -90,14 +90,15 @@ vector<int> consecutive(int a, int b){
 	return v;
 }
 
-void loopOverDomainParameters(void domainChanger(UTMDomainAbstract*, int val), int nparams){
+void loopOverDomainParameters(void modeChanger(UTMModes*, int val), int nparams){
 	vector<int> vals = consecutive(0,nparams-1); // meant for use with enums
 	for (int val : vals){
 		for (int r=0; r<5; r++){
 			printf("RUN %i STARING \n",r);
 			srand(unsigned int(time(NULL)));
-			UTMDomainAbstract* domain = new UTMDomainAbstract();
-			domainChanger(domain, val);
+			UTMModes* modes = new UTMModes();
+			modeChanger(modes, val);
+			UTMDomainAbstract* domain = new UTMDomainAbstract(modes);
 
 			NeuroEvoParameters* NE_params = new NeuroEvoParameters(domain->n_state_elements,domain->n_control_elements);
 			MultiagentTypeNE* MAS = new MultiagentTypeNE(domain->n_agents, NE_params, MultiagentTypeNE::BLIND,domain->n_types);
@@ -111,28 +112,28 @@ void loopOverDomainParameters(void domainChanger(UTMDomainAbstract*, int val), i
 	}
 }
 
-void rwdChanger(UTMDomainAbstract* domain, int rwd){
-	domain->_reward_mode = UTMDomainAbstract::RewardMode(rwd);
+void rwdChanger(UTMModes* modes, int rwd){
+	modes->_reward_mode = UTMModes::RewardMode(rwd);
 }
 
-void nAgentChanger(UTMDomainAbstract* domain, int nAgents){
-	domain->_nagents_mode = UTMDomainAbstract::AgentNumberMode(nAgents);
+void nAgentChanger(UTMModes* modes, int nAgents){
+	modes->_nagents_mode = nAgents;
 }
 
-void capacityChanger(UTMDomainAbstract* domain, int capacity){
-	domain->_capacity_mode = UTMDomainAbstract::CapacityMode(capacity);
+void capacityChanger(UTMModes* modes, int capacity){
+	modes->_capacity_mode = capacity;
 }
 
 void loopOverCapacity(){
-	loopOverDomainParameters(capacityChanger, UTMDomainAbstract::CapacityMode::NCAPACITYMODES);
+	loopOverDomainParameters(capacityChanger, UTMModes::NCAPACITYMODES);
 }
 
 void loopOverNAgents(){
-	loopOverDomainParameters(nAgentChanger,UTMDomainAbstract::AgentNumberMode::NAGENTNUMBERS);
+	loopOverDomainParameters(nAgentChanger,UTMModes::NAGENTNUMBERS);
 }
 
 void loopOverRewardTypes(){
-	loopOverDomainParameters(rwdChanger, UTMDomainAbstract::RewardMode::NMODES);
+	loopOverDomainParameters(rwdChanger, UTMModes::RewardMode::NMODES);
 }
 
 
@@ -152,7 +153,6 @@ void detailedSim(){
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	_mkdir(EXPERIMENT_FOLDER);
 	loopOverCapacity();
 	_CrtDumpMemoryLeaks(); // memory leak checking
 	std::system("pause");
