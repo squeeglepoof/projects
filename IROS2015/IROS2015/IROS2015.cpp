@@ -153,7 +153,8 @@ void detailedSim(){
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	loopOverCapacity();
+	detailedSim();
+//	loopOverCapacity();
 	_CrtDumpMemoryLeaks(); // memory leak checking
 	std::system("pause");
 	return 0;
