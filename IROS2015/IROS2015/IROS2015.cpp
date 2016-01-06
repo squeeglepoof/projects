@@ -94,8 +94,8 @@ void loopOverDomainParameters(void modeChanger(UTMModes*, int val), int nparams)
 	vector<int> vals = consecutive(0,nparams-1); // meant for use with enums
 	for (int val : vals){
 		for (int r=0; r<5; r++){
-			printf("RUN %i STARING \n",r);
-			srand(unsigned int(time(NULL)));
+			printf("RUN %i STARTING \n",r);
+			//srand(unsigned int(time(NULL)));
 			UTMModes* modes = new UTMModes();
 			modeChanger(modes, val);
 			UTMDomainAbstract* domain = new UTMDomainAbstract(modes);
@@ -154,6 +154,8 @@ void detailedSim(){
 int _tmain(int argc, _TCHAR* argv[])
 {
 	loopOverCapacity();
+	//loopOverNAgents();
+	//loopOverRewardTypes();
 	_CrtDumpMemoryLeaks(); // memory leak checking
 	std::system("pause");
 	return 0;
