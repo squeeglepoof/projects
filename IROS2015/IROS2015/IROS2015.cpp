@@ -116,8 +116,8 @@ void rwdChanger(UTMModes* modes, int rwd){
 	modes->_reward_mode = UTMModes::RewardMode(rwd);
 }
 
-void nAgentChanger(UTMModes* modes, int nAgents){
-	modes->_nagents_mode = nAgents;
+void nSectorChanger(UTMModes* modes, int nsectors){
+	modes->_nsectors_mode = nsectors;
 }
 
 void capacityChanger(UTMModes* modes, int capacity){
@@ -129,7 +129,7 @@ void loopOverCapacity(){
 }
 
 void loopOverNAgents(){
-	loopOverDomainParameters(nAgentChanger,UTMModes::NAGENTNUMBERS);
+	loopOverDomainParameters(nSectorChanger,UTMModes::NSECTORNUMBERS);
 }
 
 void loopOverRewardTypes(){
