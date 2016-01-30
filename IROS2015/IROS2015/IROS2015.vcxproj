@@ -89,8 +89,8 @@
     <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMDomainAbstract.h" />
     <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMDomainDetail.h" />
     <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMModesAndFiles.h" />
-    <ClInclude Include="..\..\..\libraries\FileIO\easyio\easyio.h" />
     <ClInclude Include="..\..\..\libraries\Math\easymath.h" />
+    <ClInclude Include="..\..\..\libraries\Math\MatrixTypes.h" />
     <ClInclude Include="..\..\..\libraries\Multiagent\IMultiagentSystem.h" />
     <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentNE.h" />
     <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.h" />
@@ -118,8 +118,8 @@
     <ClCompile Include="..\..\..\libraries\Domains\UTM\UTMDomainAbstract.cpp" />
     <ClCompile Include="..\..\..\libraries\Domains\UTM\UTMDomainDetail.cpp" />
     <ClCompile Include="..\..\..\libraries\Domains\UTM\UTMModesAndFiles.cpp" />
-    <ClCompile Include="..\..\..\libraries\FileIO\easyio\easyio.cpp" />
     <ClCompile Include="..\..\..\libraries\Math\easymath.cpp" />
+    <ClCompile Include="..\..\..\libraries\Math\MatrixTypes.cpp" />
     <ClCompile Include="..\..\..\libraries\Multiagent\IMultiagentSystem.cpp" />
     <ClCompile Include="..\..\..\libraries\Multiagent\MultiagentNE.cpp" />
     <ClCompile Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.cpp" />

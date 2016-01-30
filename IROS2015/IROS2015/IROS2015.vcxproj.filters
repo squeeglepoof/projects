@@ -96,9 +96,6 @@
     <ClInclude Include="..\..\..\libraries\Math\easymath.h">
       <Filter>Header Files\Assistants</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\libraries\FileIO\easyio\easyio.h">
-      <Filter>Header Files\Assistants</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\libraries\Planning\LinkGraph.h">
       <Filter>Header Files\Planning</Filter>
     </ClInclude>
@@ -114,6 +111,9 @@
     <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMModesAndFiles.h">
       <Filter>Header Files\Domain</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Math\MatrixTypes.h">
+      <Filter>Header Files\Assistants</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -121,9 +121,6 @@
     </ClCompile>
     <ClCompile Include="IROS2015.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libraries\FileIO\easyio\easyio.cpp">
-      <Filter>Header Files\Assistants</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\libraries\Math\easymath.cpp">
       <Filter>Header Files\Assistants</Filter>
@@ -187,6 +184,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\libraries\Domains\UTM\UTMModesAndFiles.cpp">
       <Filter>Header Files\Domain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Math\MatrixTypes.cpp">
+      <Filter>Header Files\Assistants</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
