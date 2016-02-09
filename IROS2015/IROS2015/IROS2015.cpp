@@ -90,13 +90,18 @@ vector<int> consecutive(int a, int b){
 	return v;
 }
 
-void loopOverDomainParameters(void modeChanger(UTMModes*, int val), int nparams){
+void loopOverDomainParameters(void modeChanger(UTMModes*, int val), int nparams, UTMModes* preset=NULL){
 	vector<int> vals = consecutive(0,nparams-1); // meant for use with enums
 	for (int val : vals){
 		for (int r=0; r<5; r++){
 			printf("RUN %i STARTING \n",r);
 			//srand(unsigned int(time(NULL)));
-			UTMModes* modes = new UTMModes();
+			UTMModes* modes;
+			if (preset==NULL){
+				modes = new UTMModes();
+			} else{
+				modes = preset;
+			}
 			modeChanger(modes, val);
 			UTMDomainAbstract* domain = new UTMDomainAbstract(modes);
 
@@ -133,7 +138,14 @@ void loopOverNAgents(){
 }
 
 void loopOverRewardTypes(){
-	loopOverDomainParameters(rwdChanger, UTMModes::RewardMode::NMODES);
+	//loopOverDomainParameters(rwdChanger, UTMModes::RewardMode::NMODES);
+	UTMModes* params = new UTMModes();
+	params->_agent_defn_mode=UTMModes::SECTOR;
+	loopOverDomainParameters(rwdChanger, 3,params);
+
+	
+	params->_agent_defn_mode=UTMModes::LINK;
+	loopOverDomainParameters(rwdChanger, 3,params);
 }
 
 

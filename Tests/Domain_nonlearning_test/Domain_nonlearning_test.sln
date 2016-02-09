@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Domain_nonlearning_test", "Domain_nonlearning_test\Domain_nonlearning_test.vcxproj", "{AA2F8014-C1EE-4CF1-9C27-44F7C3EDC13A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA2F8014-C1EE-4CF1-9C27-44F7C3EDC13A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AA2F8014-C1EE-4CF1-9C27-44F7C3EDC13A}.Debug|Win32.Build.0 = Debug|Win32
+		{AA2F8014-C1EE-4CF1-9C27-44F7C3EDC13A}.Release|Win32.ActiveCfg = Release|Win32
+		{AA2F8014-C1EE-4CF1-9C27-44F7C3EDC13A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
