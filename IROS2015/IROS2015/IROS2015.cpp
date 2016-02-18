@@ -36,10 +36,10 @@
 
 
 std::string typefilenames[MultiagentTypeNE::TypeHandling::NMODES] = {
-	"blind-",
-	"weighted-",
-	"crossweighted-",
-	"multimind-",
+	"blind",
+	"weighted",
+	"crossweighted",
+	"multimind",
 };
 
 /*void loopOverTypeHandling(){
@@ -111,7 +111,7 @@ void loopOverDomainParameters(void modeChanger(UTMModes*, int val), int nparams,
 			SimTypeNE sim(domain, MAS, MultiagentTypeNE::BLIND);
 			sim.runExperiment();
 
-			sim.outputMetricLog(typefilenames[MAS->type_mode]+to_string(r)+".csv");
+			sim.outputMetricLog(typefilenames[MAS->type_mode], r);
 			delete ((UTMDomainAbstract*)domain);
 		}
 	}
