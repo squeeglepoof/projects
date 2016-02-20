@@ -1,40 +1,10 @@
-========================================================================
-    CONSOLE APPLICATION : IROS2015 Project Overview
-========================================================================
+To add in RAGS:
 
-AppWizard has created this IROS2015 application for you.
+The high-level A* is called in the class "TypeGraphManager", in TypeGraphManager.h. Every UAV has access to one pointer to a TypeGraphManager object.
 
-This file contains a summary of what you will find in each of the files that
-make up your IROS2015 application.
+The easiest, but hackiest way to use RAGS, would be to copy over the 'astar()' function in Typegraphmanager with your RAGs algorithm. Less easy, but more proper, is to make a rags() function in the typegraphmanager, and then create a mode in UTMModesAndFiles for using RAGS, and add a switch statement for which mode UAVs use based on the mode set.
 
 
-IROS2015.vcxproj
-    This is the main project file for VC++ projects generated using an Application Wizard.
-    It contains information about the version of Visual C++ that generated the file, and
-    information about the platforms, configurations, and project features selected with the
-    Application Wizard.
+To modify domain parameters:
 
-IROS2015.vcxproj.filters
-    This is the filters file for VC++ projects generated using an Application Wizard. 
-    It contains information about the association between the files in your project 
-    and the filters. This association is used in the IDE to show grouping of files with
-    similar extensions under a specific node (for e.g. ".cpp" files are associated with the
-    "Source Files" filter).
-
-IROS2015.cpp
-    This is the main application source file.
-
-/////////////////////////////////////////////////////////////////////////////
-Other standard files:
-
-StdAfx.h, StdAfx.cpp
-    These files are used to build a precompiled header (PCH) file
-    named IROS2015.pch and a precompiled types file named StdAfx.obj.
-
-/////////////////////////////////////////////////////////////////////////////
-Other notes:
-
-AppWizard uses "TODO:" comments to indicate parts of the source code you
-should add to or customize.
-
-/////////////////////////////////////////////////////////////////////////////
+Look in the file UTMModesAndFiles.h. UTMModes has a constructor that sets the modes for the simulation. This is accessed in order to construct the domain and run the project.

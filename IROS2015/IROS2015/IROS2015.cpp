@@ -13,6 +13,7 @@
 
 // for memory leak detection
 #define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
 #include <crtdbg.h>
 
 // warning disabling
@@ -25,7 +26,6 @@
 // Standard includes
 #include "stdafx.h"
 #include <stdio.h>
-#include <stdlib.h>
 #include <direct.h>
 
 
@@ -33,14 +33,6 @@
 #include "../../../libraries/Simulation/SimTypeNE.h"
 #include "../../../libraries/Domains/UTM/UTMDomainDetail.h"
 #include "../../../libraries/Domains/UTM/UTMDomainAbstract.h"
-
-
-std::string typefilenames[MultiagentTypeNE::TypeHandling::NMODES] = {
-	"blind",
-	"weighted",
-	"crossweighted",
-	"multimind",
-};
 
 /*void loopOverTypeHandling(){
 	// TODO: DIRECTORY NAMING CONVENTION
@@ -90,29 +82,27 @@ vector<int> consecutive(int a, int b){
 	return v;
 }
 
-void loopOverDomainParameters(void modeChanger(UTMModes*, int val), int nparams, UTMModes* preset=NULL){
+void loopOverDomainParameters(void modeChanger(UTMModes*, int val), int nparams, UTMModes* modes){
 	vector<int> vals = consecutive(0,nparams-1); // meant for use with enums
 	for (int val : vals){
-		for (int r=0; r<5; r++){
+		for (int r=0; r<1; r++){
 			printf("RUN %i STARTING \n",r);
 			//srand(unsigned int(time(NULL)));
-			UTMModes* modes;
-			if (preset==NULL){
-				modes = new UTMModes();
-			} else{
-				modes = preset;
-			}
+			srand(0);
+
 			modeChanger(modes, val);
 			UTMDomainAbstract* domain = new UTMDomainAbstract(modes);
-
 			NeuroEvoParameters* NE_params = new NeuroEvoParameters(domain->n_state_elements,domain->n_control_elements);
 			MultiagentTypeNE* MAS = new MultiagentTypeNE(domain->n_agents, NE_params, MultiagentTypeNE::BLIND,domain->n_types);
 
 			SimTypeNE sim(domain, MAS, MultiagentTypeNE::BLIND);
 			sim.runExperiment();
 
-			sim.outputMetricLog(typefilenames[MAS->type_mode], r);
-			delete ((UTMDomainAbstract*)domain);
+			sim.outputMetricLog(MAS->type_file_name(), r);
+			
+			delete domain;
+			delete NE_params;
+			delete MAS;
 		}
 	}
 }
@@ -130,11 +120,15 @@ void capacityChanger(UTMModes* modes, int capacity){
 }
 
 void loopOverCapacity(){
-	loopOverDomainParameters(capacityChanger, UTMModes::NCAPACITYMODES);
+	UTMModes *modes = new UTMModes();
+	loopOverDomainParameters(capacityChanger, UTMModes::NCAPACITYMODES,modes);
+	delete modes;
 }
 
 void loopOverNAgents(){
-	loopOverDomainParameters(nSectorChanger,UTMModes::NSECTORNUMBERS);
+	UTMModes *modes = new UTMModes();
+	loopOverDomainParameters(nSectorChanger,UTMModes::NSECTORNUMBERS,modes);
+	delete modes;
 }
 
 void loopOverRewardTypes(){
@@ -146,8 +140,8 @@ void loopOverRewardTypes(){
 	
 	params->_agent_defn_mode=UTMModes::LINK;
 	loopOverDomainParameters(rwdChanger, 1,params);
+	delete params;
 }
-
 
 void detailedSim(){
 	srand(unsigned int(time(NULL)));
