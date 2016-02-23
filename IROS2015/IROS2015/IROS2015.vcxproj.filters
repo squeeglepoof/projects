@@ -120,6 +120,9 @@
     <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMAgentReward.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\libraries\Planning\RAGS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -199,6 +202,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\libraries\Domains\UTM\Link.cpp">
       <Filter>Header Files\Domain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libraries\Planning\RAGS.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
