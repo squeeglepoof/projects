@@ -26,8 +26,10 @@
 // Standard includes
 #include "stdafx.h"
 #include <stdio.h>
-#include <direct.h>
 
+// if windows use direct.h if linux use unistd.h
+#include <direct.h>
+// #include <unistd.h>
 
 // Project-specific includes
 #include "../../../libraries/Simulation/SimTypeNE.h"
