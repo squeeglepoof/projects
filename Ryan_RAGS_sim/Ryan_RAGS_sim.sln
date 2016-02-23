@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ryan_RAGS_sim", "Ryan_RAGS_sim\Ryan_RAGS_sim.vcxproj", "{E333D25A-787D-441F-9541-FCD31ACE9AFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E333D25A-787D-441F-9541-FCD31ACE9AFA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E333D25A-787D-441F-9541-FCD31ACE9AFA}.Debug|Win32.Build.0 = Debug|Win32
+		{E333D25A-787D-441F-9541-FCD31ACE9AFA}.Release|Win32.ActiveCfg = Release|Win32
+		{E333D25A-787D-441F-9541-FCD31ACE9AFA}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

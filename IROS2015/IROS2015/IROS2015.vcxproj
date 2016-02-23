@@ -98,6 +98,7 @@
     <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.h" />
     <ClInclude Include="..\..\..\libraries\Planning\GridGraph.h" />
     <ClInclude Include="..\..\..\libraries\Planning\LinkGraph.h" />
+    <ClInclude Include="..\..\..\libraries\Planning\RAGS.h" />
     <ClInclude Include="..\..\..\libraries\Planning\SectorGraphManager.h" />
     <ClInclude Include="..\..\..\libraries\Planning\TypeGraphmanager.h" />
     <ClInclude Include="..\..\..\libraries\Simulation\SimNE.h" />
@@ -127,6 +128,7 @@
     <ClCompile Include="..\..\..\libraries\Multiagent\IMultiagentSystem.cpp" />
     <ClCompile Include="..\..\..\libraries\Multiagent\MultiagentNE.cpp" />
     <ClCompile Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.cpp" />
+    <ClCompile Include="..\..\..\libraries\Planning\RAGS.cpp" />
     <ClCompile Include="..\..\..\libraries\Planning\SectorGraphManager.cpp" />
     <ClCompile Include="..\..\..\libraries\Planning\TypeGraphManager.cpp" />
     <ClCompile Include="..\..\..\libraries\Simulation\SimNE.cpp" />

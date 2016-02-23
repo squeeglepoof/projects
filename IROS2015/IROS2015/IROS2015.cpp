@@ -87,10 +87,10 @@ vector<int> consecutive(int a, int b){
 void loopOverDomainParameters(void modeChanger(UTMModes*, int val), int nparams, UTMModes* modes){
 	vector<int> vals = consecutive(0,nparams-1); // meant for use with enums
 	for (int val : vals){
-		for (int r=0; r<1; r++){
+		for (int r=0; r<5; r++){
 			printf("RUN %i STARTING \n",r);
 			//srand(unsigned int(time(NULL)));
-			srand(0);
+			srand(1);
 
 			modeChanger(modes, val);
 			UTMDomainAbstract* domain = new UTMDomainAbstract(modes);
@@ -102,7 +102,7 @@ void loopOverDomainParameters(void modeChanger(UTMModes*, int val), int nparams,
 
 			sim.outputMetricLog(MAS->type_file_name(), r);
 			
-			delete domain;
+			delete (UTMDomainAbstract*)domain;
 			delete NE_params;
 			delete MAS;
 		}
@@ -161,9 +161,9 @@ void detailedSim(){
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+
 	loopOverRewardTypes();
 	_CrtDumpMemoryLeaks(); // memory leak checking
 	std::system("pause");
 	return 0;
 }
-
