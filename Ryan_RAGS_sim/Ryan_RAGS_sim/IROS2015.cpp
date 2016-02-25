@@ -14,19 +14,19 @@
 // for memory leak detection
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
-#include <crtdbg.h>
+//#include <crtdbg.h>
 
 // warning disabling
-//#pragma warning(push) 
-//#pragma warning(disable:4996) 
+//#pragma warning(push)
+//#pragma warning(disable:4996)
 
 // Parallelization
 //#include <omp.h>
 
 // Standard includes
-#include "stdafx.h"
+//#include "../../IROS2015/IROS2015/stdafx.h"
 #include <stdio.h>
-#include <direct.h>
+#include <sys/stat.h>
 
 
 // Project-specific includes
@@ -87,7 +87,7 @@ void loopOverDomainParameters(void modeChanger(UTMModes*, int val), int nparams,
 	for (int val : vals){
 		for (int r=0; r<1; r++){
 			printf("RUN %i STARTING \n",r);
-			//srand(unsigned int(time(NULL)));
+			//srand(uint(time(NULL)));
 			srand(0);
 
 			modeChanger(modes, val);
@@ -99,7 +99,7 @@ void loopOverDomainParameters(void modeChanger(UTMModes*, int val), int nparams,
 			sim.runExperiment();
 
 			sim.outputMetricLog(MAS->type_file_name(), r);
-			
+
 			delete domain;
 			delete NE_params;
 			delete MAS;
@@ -137,14 +137,14 @@ void loopOverRewardTypes(){
 	params->_agent_defn_mode=UTMModes::SECTOR;
 	loopOverDomainParameters(rwdChanger, 1,params);
 
-	
+
 	//params->_agent_defn_mode=UTMModes::LINK;
 	//loopOverDomainParameters(rwdChanger, 1,params);
 	delete params;
 }
 
 void detailedSim(){
-	srand(unsigned int(time(NULL)));
+	srand(uint(time(NULL)));
 	UTMDomainDetail* domain = new UTMDomainDetail();
 
 	NeuroEvoParameters* NE_params = new NeuroEvoParameters(domain->n_state_elements,domain->n_control_elements);
