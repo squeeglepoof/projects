@@ -14,8 +14,9 @@
 // for memory leak detection
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
+#ifdef _WIN32
 #include <crtdbg.h>
-
+#endif
 // warning disabling
 //#pragma warning(push) 
 //#pragma warning(disable:4996) 
@@ -28,8 +29,11 @@
 #include <stdio.h>
 
 // if windows use direct.h if linux use unistd.h
+#ifdef _WIN32
 #include <direct.h>
-// #include <unistd.h>
+#else
+#include <sys/stat.h>
+#endif
 
 // Project-specific includes
 #include "../../../libraries/Simulation/SimTypeNE.h"
