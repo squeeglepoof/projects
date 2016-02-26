@@ -143,6 +143,7 @@ void detailedSim(){
 	delete ((UTMDomainAbstract*)domain);
 }
 
+#ifdef _WIN32
 int _tmain(int argc, _TCHAR* argv[])
 {
 
@@ -151,3 +152,14 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::system("pause");
 	return 0;
 }
+
+#else
+int main()
+{
+
+	loopOverRewardTypes();
+	std::system("pause");
+	return 0;
+}
+#endif
+
