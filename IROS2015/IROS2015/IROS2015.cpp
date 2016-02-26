@@ -12,10 +12,17 @@
 ******************************************************************************/
 
 // for memory leak detection
+
+
+
+#ifdef _WIN32
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
-#ifdef _WIN32
 #include <crtdbg.h>
+#include <tchar.h>
+#include <direct.h>// if windows use direct.h if linux use unistd.h
+#else
+#include <sys/stat.h>
 #endif
 // warning disabling
 //#pragma warning(push) 
@@ -26,13 +33,6 @@
 
 // Standard includes
 #include <stdio.h>
-
-// if windows use direct.h if linux use unistd.h
-#ifdef _WIN32
-#include <direct.h>
-#else
-#include <sys/stat.h>
-#endif
 
 // Project-specific includes
 #include "../../../libraries/Simulation/SimTypeNE.h"
@@ -144,22 +144,12 @@ void detailedSim(){
 }
 
 #ifdef _WIN32
-int _tmain(int argc, _TCHAR* argv[])
-{
-
+int _tmain(int argc, _TCHAR* argv[]){
+#else
+int main(){
+#endif
 	loopOverRewardTypes();
 	_CrtDumpMemoryLeaks(); // memory leak checking
 	std::system("pause");
 	return 0;
 }
-
-#else
-int main()
-{
-
-	loopOverRewardTypes();
-	std::system("pause");
-	return 0;
-}
-#endif
-
