@@ -25,7 +25,6 @@
 //#include <omp.h>
 
 // Standard includes
-#include "stdafx.h"
 #include <stdio.h>
 
 // if windows use direct.h if linux use unistd.h
@@ -93,7 +92,7 @@ void loopOverDomainParameters(void modeChanger(UTMModes*, int val), int nparams,
 	for (int val : vals){
 		for (int r=0; r<10; r++){
 			printf("RUN %i STARTING \n",r);
-			//srand(unsigned int(time(NULL)));
+			//srand(uint(time(NULL)));
 			//srand(1);
 
 			modeChanger(modes, val);
@@ -131,7 +130,7 @@ void loopOverRewardTypes(){
 }
 
 void detailedSim(){
-	srand(unsigned int(time(NULL)));
+	srand(uint(time(NULL)));
 	UTMDomainDetail* domain = new UTMDomainDetail();
 
 	NeuroEvoParameters* NE_params = new NeuroEvoParameters(domain->n_state_elements,domain->n_control_elements);
