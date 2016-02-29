@@ -118,13 +118,7 @@ void rwdChanger(UTMModes* modes, int rwd){
 
 
 void loopOverRewardTypes(){
-	//loopOverDomainParameters(rwdChanger, UTMModes::RewardMode::NMODES);
 	UTMModes* params = new UTMModes();
-	params->_agent_defn_mode=UTMModes::SECTOR;
-	loopOverDomainParameters(rwdChanger, 1,params);
-
-	
-	params->_agent_defn_mode=UTMModes::LINK;
 	loopOverDomainParameters(rwdChanger, 1,params);
 	delete params;
 }
