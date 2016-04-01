@@ -125,7 +125,8 @@ void loopOverRewardTypes(){
 
 void detailedSim(){
 	srand(uint(time(NULL)));
-	UTMDomainDetail* domain = new UTMDomainDetail();
+	UTMModes* modes = new UTMModes();
+	UTMDomainDetail* domain = new UTMDomainDetail(modes);
 
 	NeuroEvoParameters* NE_params = new NeuroEvoParameters(domain->n_state_elements,domain->n_control_elements);
 	MultiagentTypeNE* MAS = new MultiagentTypeNE(domain->n_agents, NE_params, MultiagentTypeNE::BLIND,domain->n_types);
@@ -135,6 +136,7 @@ void detailedSim(){
 
 	sim.outputMetricLog("detailsim.csv");
 	delete ((UTMDomainAbstract*)domain);
+	delete modes;
 }
 
 #ifdef _WIN32
@@ -142,7 +144,8 @@ int _tmain(int argc, _TCHAR* argv[]){
 #else
 int main(){
 #endif
-	loopOverRewardTypes();
+	//loopOverRewardTypes();
+	detailedSim();
 	_CrtDumpMemoryLeaks(); // memory leak checking
 	std::system("pause");
 	return 0;
