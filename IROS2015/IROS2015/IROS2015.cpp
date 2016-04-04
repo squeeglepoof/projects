@@ -144,8 +144,8 @@ int _tmain(int argc, _TCHAR* argv[]){
 #else
 int main(){
 #endif
-	//loopOverRewardTypes();
-	detailedSim();
+	loopOverRewardTypes();
+	//detailedSim();
 	_CrtDumpMemoryLeaks(); // memory leak checking
 	std::system("pause");
 	return 0;
