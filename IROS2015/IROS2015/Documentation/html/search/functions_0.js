@@ -15,5 +15,5 @@ var searchData=
   ['astar',['astar',['../class_grid_graph.html#acf0c990a1190605130bbd5697c3605af',1,'GridGraph::astar()'],['../class_link_graph.html#a9a0ceb1c790ecd341ca9b81e62fe79a7',1,'LinkGraph::astar()'],['../class_sector_graph_manager.html#acae160fbe79c52e472d13ce6127cc962',1,'SectorGraphManager::astar()'],['../class_type_graph_manager.html#ace0a744a8e814a7d0633049407cd8123',1,'TypeGraphManager::astar()']]],
   ['astar_5fgoal_5fvisitor',['astar_goal_visitor',['../struct_grid_graph_1_1astar__goal__visitor.html#ae72f05d0ef95a70f82f24cbbb78d635e',1,'GridGraph::astar_goal_visitor::astar_goal_visitor()'],['../classastar__goal__visitor.html#a0f1979c739f424a69bac999be7882df0',1,'astar_goal_visitor::astar_goal_visitor()']]],
   ['at_5fcapacity',['at_capacity',['../class_link.html#a99dffc79a7165e90720f95155f7c4a8a',1,'Link']]],
-  ['atdestinationfix',['atDestinationFix',['../class_fix.html#a0ed6d69abf85dedd6268aeeeed3284a8',1,'Fix']]]
+  ['atdestinationfix',['atDestinationFix',['../class_fix.html#a0ed6d69abf85dedd6268aeeeed3284a8',1,'Fix::atDestinationFix()'],['../class_fix_detail.html#a9f5b83f44b8dd2e5d688647ecbfe1cca',1,'FixDetail::atDestinationFix()']]]
 ];

@@ -27,6 +27,6 @@ var searchData=
   ['astar_5fgoal_5fvisitor',['astar_goal_visitor',['../classastar__goal__visitor.html',1,'astar_goal_visitor&lt; Vertex &gt;'],['../struct_grid_graph_1_1astar__goal__visitor.html#ae72f05d0ef95a70f82f24cbbb78d635e',1,'GridGraph::astar_goal_visitor::astar_goal_visitor()'],['../classastar__goal__visitor.html#a0f1979c739f424a69bac999be7882df0',1,'astar_goal_visitor::astar_goal_visitor()']]],
   ['astar_5fgoal_5fvisitor',['astar_goal_visitor',['../struct_grid_graph_1_1astar__goal__visitor.html',1,'GridGraph']]],
   ['at_5fcapacity',['at_capacity',['../class_link.html#a99dffc79a7165e90720f95155f7c4a8a',1,'Link']]],
-  ['atdestinationfix',['atDestinationFix',['../class_fix.html#a0ed6d69abf85dedd6268aeeeed3284a8',1,'Fix']]],
+  ['atdestinationfix',['atDestinationFix',['../class_fix.html#a0ed6d69abf85dedd6268aeeeed3284a8',1,'Fix::atDestinationFix()'],['../class_fix_detail.html#a9f5b83f44b8dd2e5d688647ecbfe1cca',1,'FixDetail::atDestinationFix()']]],
   ['avmap',['AVmap',['../class_q_table.html#a931473eaf656ee39df3d8e88302b0bc2',1,'QTable']]]
 ];

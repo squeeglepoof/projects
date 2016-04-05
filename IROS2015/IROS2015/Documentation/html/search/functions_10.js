@@ -8,7 +8,7 @@ var searchData=
   ['searchgraph',['SearchGraph',['../class_r_a_g_s.html#abcc8f06fb70aa41ae2744efe120b1d04',1,'RAGS::SearchGraph(XY start, XY goal, vector&lt; double &gt; &amp;weights)'],['../class_r_a_g_s.html#a982d1b99729bfd4b9c43f7c84474830a',1,'RAGS::SearchGraph(Vertex *start, Vertex *goal, vector&lt; double &gt; &amp;weights)']]],
   ['sector',['Sector',['../class_sector.html#abeb9e5f5f7b5067cf5199639c83b1db8',1,'Sector::Sector(easymath::XY xy, int sectorIDset, int n_agents, std::vector&lt; int &gt; connections, UTMModes *params)'],['../class_sector.html#acba0ffc50e70c7b4dac61a190d26b019',1,'Sector::Sector()']]],
   ['sectoragentmanager',['SectorAgentManager',['../class_sector_agent_manager.html#afac7c5df75624b0d08a6e8c454e83216',1,'SectorAgentManager']]],
-  ['sectorgraphmanager',['SectorGraphManager',['../class_sector_graph_manager.html#a8b534768e38db725ccc8ebe30083f252',1,'SectorGraphManager']]],
+  ['sectorgraphmanager',['SectorGraphManager',['../class_sector_graph_manager.html#a27ceba1625aa7074c0c92db52eb61fd5',1,'SectorGraphManager']]],
   ['selectaction',['selectAction',['../class_predator.html#aa96e1a29fc0471424b28603e17212ac9',1,'Predator']]],
   ['selectnewmember',['selectNewMember',['../class_neuro_evo.html#ae3f94259bf3b06f655928d96a0ce9c59',1,'NeuroEvo']]],
   ['selectnewmemberall',['selectNewMemberAll',['../class_type_neuro_evo.html#a3f0c360556146f08d509fe240e5fcc15',1,'TypeNeuroEvo']]],

@@ -3,7 +3,7 @@ var searchData=
   ['r_5fx',['R_x',['../_z___u_n_t_e_s_t_e_d___f_u_n_c_t_i_o_n_s_8h.html#a9f287f3177814be1ea92c5562c4c1d9e',1,'Z_UNTESTED_FUNCTIONS.h']]],
   ['r_5fy',['R_y',['../_z___u_n_t_e_s_t_e_d___f_u_n_c_t_i_o_n_s_8h.html#a7704533a23480dcfeeca28b1f74e8a21',1,'Z_UNTESTED_FUNCTIONS.h']]],
   ['r_5fz',['R_z',['../_z___u_n_t_e_s_t_e_d___f_u_n_c_t_i_o_n_s_8h.html#a17b1130f7f8a6a4a5a280ee62ed038fd',1,'Z_UNTESTED_FUNCTIONS.h']]],
-  ['rags',['rags',['../class_type_graph_manager.html#acfb0014ce8862f814978b1de01ff1b20',1,'TypeGraphManager::rags()'],['../class_r_a_g_s.html#a8fd11ee09a5f964fd339d792b5d9c511',1,'RAGS::RAGS(vector&lt; XY &gt; &amp;locations, vector&lt; edge &gt; &amp;edge_array, vector&lt; vector&lt; double &gt; &gt; &amp;weights)'],['../class_r_a_g_s.html#a349c45da2fd9c5eddbb8f273c32da983',1,'RAGS::RAGS(vector&lt; XY &gt; &amp;locations, vector&lt; edge &gt; &amp;edge_array)']]],
+  ['rags',['RAGS',['../class_r_a_g_s.html#a8fd11ee09a5f964fd339d792b5d9c511',1,'RAGS::RAGS(vector&lt; XY &gt; &amp;locations, vector&lt; edge &gt; &amp;edge_array, vector&lt; vector&lt; double &gt; &gt; &amp;weights)'],['../class_r_a_g_s.html#a349c45da2fd9c5eddbb8f273c32da983',1,'RAGS::RAGS(vector&lt; XY &gt; &amp;locations, vector&lt; edge &gt; &amp;edge_array)'],['../class_type_graph_manager.html#acfb0014ce8862f814978b1de01ff1b20',1,'TypeGraphManager::rags()']]],
   ['rand',['rand',['../namespaceeasymath.html#a802557fb822f36b2bbd9afc589f3999b',1,'easymath']]],
   ['randaddfanin',['randAddFanIn',['../class_neural_net.html#a36bd0443fa53ee4724df72d1bd1db271',1,'NeuralNet']]],
   ['randomize_5fpositions',['randomize_positions',['../class_grid_world.html#af36b4d692df9d8d7e84341d2604254b0',1,'GridWorld']]],

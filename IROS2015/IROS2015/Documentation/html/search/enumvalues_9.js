@@ -5,5 +5,5 @@ var searchData=
   ['normal',['NORMAL',['../class_rover.html#ac16a1a2d685c21c323ed167b3c4f2444ae4d1e2a33c4c46d6d204c94da424f604',1,'Rover::NORMAL()'],['../class_predator.html#a1c5cc24233e6289a059237fa2ee70f19ac3f54c3d51ce468d55c934c610f5c663',1,'Predator::Normal()']]],
   ['nrewardtypes',['NREWARDTYPES',['../class_u_t_m_modes.html#a52772d0d5b843b704d5731265a18b95bab50beb1bd028bd88b0c2ad8e73c97d98',1,'UTMModes']]],
   ['ntypes',['NTYPES',['../class_u_t_m_modes.html#a598c653859ec4f8757e05817b3214591a6ae56b21a1a6ce489fff5db8f0b1c421',1,'UTMModes']]],
-  ['numtypes',['NUMTYPES',['../class_rover.html#ac16a1a2d685c21c323ed167b3c4f2444a4e912b4978dc9877b80b936929d251b3',1,'Rover::NUMTYPES()'],['../class_predator.html#a1c5cc24233e6289a059237fa2ee70f19afbc92fad87dfc9c0d135f1e5333df90f',1,'Predator::numTypes()']]]
+  ['numtypes',['numTypes',['../class_predator.html#a1c5cc24233e6289a059237fa2ee70f19afbc92fad87dfc9c0d135f1e5333df90f',1,'Predator::numTypes()'],['../class_rover.html#ac16a1a2d685c21c323ed167b3c4f2444a4e912b4978dc9877b80b936929d251b3',1,'Rover::NUMTYPES()']]]
 ];

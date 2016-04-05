@@ -30,7 +30,7 @@ var searchData=
   ['cur_5flink_5fid',['cur_link_ID',['../class_u_a_v.html#a24f9dda162cca9fcdd950236d1eea375',1,'UAV']]],
   ['curlinkid',['curLinkID',['../class_u_a_v.html#afad15e5e967d8ad92f698e4954fc6b88',1,'UAV']]],
   ['currently_5fin_5fconflict',['currently_in_conflict',['../class_u_a_v.html#a5963ff305e7f846ea61e7702271d2da5',1,'UAV']]],
-  ['cursectorid',['curSectorID',['../class_u_a_v.html#ac8563f1d905d86de33d991a75c631f1b',1,'UAV']]],
+  ['cursectorid',['curSectorID',['../class_u_a_v.html#ac8563f1d905d86de33d991a75c631f1b',1,'UAV::curSectorID()'],['../class_u_a_v_detail.html#aa5dcdeb45e177e5cf330f29eb5188961',1,'UAVDetail::curSectorID()']]],
   ['cvec3',['CVec3',['../class_c_vec3.html',1,'CVec3'],['../class_c_vec3.html#a09d7a6c9048bcca5fdf1e2f0f5aa93c6',1,'CVec3::CVec3(float InX, float InY, float InZ)'],['../class_c_vec3.html#ac3f80e5f95c3f1e27e3e50019e4f38de',1,'CVec3::CVec3()']]],
   ['cw',['CW',['../class_predator.html#a1c5cc24233e6289a059237fa2ee70f19a27c29be5442f3aeb7befd04e79d24c4f',1,'Predator']]]
 ];

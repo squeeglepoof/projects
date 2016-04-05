@@ -27,7 +27,7 @@ var searchData=
   ['mks',['mks',['../_units_8cpp.html#a42110ef11305b50c2236017c36b0dbae',1,'mks(string value, string unit):&#160;Units.cpp'],['../_units_8h.html#a1de4b79713b8797d9f33f5c43a1a6c1b',1,'mks(std::string value, std::string unit):&#160;Units.h']]],
   ['momentumturnradius',['momentumTurnRadius',['../_dynamics3_d_8cpp.html#a4783d4f6b6558240d6f7b8ab15bb3f54',1,'momentumTurnRadius(double v, double phi):&#160;Dynamics3D.cpp'],['../_dynamics3_d_8h.html#a4783d4f6b6558240d6f7b8ab15bb3f54',1,'momentumTurnRadius(double v, double phi):&#160;Dynamics3D.cpp']]],
   ['move_5ffrom',['move_from',['../class_link.html#ae79a7af1845196edc2d42b39a390cfc7',1,'Link']]],
-  ['movetowardnextwaypoint',['moveTowardNextWaypoint',['../class_u_a_v.html#a1a78224e0786b1a7b1509183e8167921',1,'UAV']]],
+  ['movetowardnextwaypoint',['moveTowardNextWaypoint',['../class_u_a_v_detail.html#a93bb87bc9feb65e21570e96e0c7a7a1e',1,'UAVDetail']]],
   ['multiagentne',['MultiagentNE',['../class_multiagent_n_e.html#aec8df38eb2f08cef99973feb8c623460',1,'MultiagentNE::MultiagentNE(void)'],['../class_multiagent_n_e.html#a4ea83a6cecbc60680e50b810bc8f87ae',1,'MultiagentNE::MultiagentNE(int n_agents, NeuroEvoParameters *NE_params)']]],
   ['multiagenttypene',['MultiagentTypeNE',['../class_multiagent_type_n_e.html#a1e026a854a276e5f7afe18f1dd1c52ae',1,'MultiagentTypeNE::MultiagentTypeNE(void)'],['../class_multiagent_type_n_e.html#a35a5d6b9ab770171ef6be3b185d4d7de',1,'MultiagentTypeNE::MultiagentTypeNE(int n_agents, NeuroEvoParameters *NE_params, TypeHandling type_mode, int n_types)']]],
   ['mutate',['mutate',['../class_neural_net.html#aff668924a18afff13273b2e46a4cb148',1,'NeuralNet::mutate()'],['../class_type_neural_net.html#a52790d4cf35c6572ecbcd6934d102eb7',1,'TypeNeuralNet::mutate()']]]

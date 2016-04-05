@@ -8,7 +8,7 @@ var searchData=
   ['vector3d_2eh',['Vector3D.h',['../_vector3_d_8h.html',1,'']]],
   ['vectorgreaterthan',['vectorGreaterThan',['../shortcuts_8h.html#a3315cb372270bd587a21d2e07083ff95',1,'shortcuts.h']]],
   ['vectorlessthan',['vectorLessThan',['../shortcuts_8h.html#a7ff3509139ec0026ddcea4a9e1a2c13d',1,'shortcuts.h']]],
-  ['vertex',['Vertex',['../class_vertex.html',1,'Vertex'],['../class_link_graph.html#a3ae3664519b653bfcf65b6f691a6b00f',1,'LinkGraph::vertex()'],['../classdistance__heuristic.html#a8d14975e9e84fb63f1c6dc5a0a6651f4',1,'distance_heuristic::Vertex()'],['../class_vertex.html#a2927de87e482ddebbb18abf7f811c6c3',1,'Vertex::Vertex()']]],
+  ['vertex',['Vertex',['../class_vertex.html',1,'Vertex'],['../classdistance__heuristic.html#a8d14975e9e84fb63f1c6dc5a0a6651f4',1,'distance_heuristic::Vertex()'],['../class_vertex.html#a2927de87e482ddebbb18abf7f811c6c3',1,'Vertex::Vertex()'],['../class_link_graph.html#a3ae3664519b653bfcf65b6f691a6b00f',1,'LinkGraph::vertex()']]],
   ['vertex2int',['vertex2int',['../class_link_graph.html#af25ba484e08a9146a8e3febcfd2f8840',1,'LinkGraph']]],
   ['vertex_5fdescriptor',['vertex_descriptor',['../classmt.html#a7b2500cbf779a682e99ff939b031e2c9',1,'mt']]],
   ['vertex_5fhash',['vertex_hash',['../structmt_1_1vertex__hash.html',1,'mt']]],

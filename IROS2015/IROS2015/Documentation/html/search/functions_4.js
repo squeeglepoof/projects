@@ -4,7 +4,7 @@ var searchData=
   ['egreedy',['eGreedy',['../class_q_agent.html#a8b4f35246b0e0cfbfa27cd5bec53f803',1,'QAgent']]],
   ['emptyqueue',['EmptyQueue',['../class_queue.html#a365f3c3d6582d43417e578a7eb8c51d9',1,'Queue']]],
   ['endpoint',['endPoint',['../_vector3_d_8cpp.html#a722530adee0ac8211a0cee2a567be839',1,'endPoint(Point3D start, Vector3D orientation, double dist):&#160;Vector3D.cpp'],['../_vector3_d_8h.html#a722530adee0ac8211a0cee2a567be839',1,'endPoint(Point3D start, Vector3D orientation, double dist):&#160;Vector3D.cpp']]],
-  ['endsectorid',['endSectorID',['../class_u_a_v.html#a4007aa6c4c2f7e2733778bc9f96242ee',1,'UAV']]],
+  ['endsectorid',['endSectorID',['../class_u_a_v.html#a4007aa6c4c2f7e2733778bc9f96242ee',1,'UAV::endSectorID()'],['../class_u_a_v_detail.html#acf875df5c178f10b5ece1f1c921fc720',1,'UAVDetail::endSectorID()']]],
   ['ep',['ep',['../stepplot_8m.html#adda5e0464a73087eddcedb8fa64cd89c',1,'stepplot.m']]],
   ['epoch',['epoch',['../class_sim_n_e.html#a92bba86c7496968f03ac2625da1d0a55',1,'SimNE']]],
   ['epsave',['epsave',['../stepplot_8m.html#af08066650691c02cb1ce4ca02e6587ee',1,'stepplot.m']]],
@@ -17,5 +17,5 @@ var searchData=
   ['exportlist',['exportlist',['../readin_8cpp.html#afdaa6d579363ac82c5afd06f9a8c3a3e',1,'exportlist(string filename, list&lt; string &gt; listContents):&#160;readin.cpp'],['../readin_8h.html#ac57ff1794cebaa02393732a04fc2f381',1,'exportlist(std::string filename, std::list&lt; std::string &gt; listContents):&#160;readin.h']]],
   ['exportlog',['exportLog',['../class_u_t_m_domain_detail.html#a84cd73f57e1bca3ebaf7a8ae16234dec',1,'UTMDomainDetail']]],
   ['exportsectorlocations',['exportSectorLocations',['../class_u_t_m_domain_abstract.html#ad6f0e462ca61011388b45126e4b70dbb',1,'UTMDomainAbstract']]],
-  ['exportuavlocations',['exportUAVLocations',['../class_u_t_m_domain_abstract.html#a4a8ccf8779be8cbe8214318d4ef3d88f',1,'UTMDomainAbstract']]]
+  ['exportuavlocations',['exportUAVLocations',['../class_u_t_m_domain_detail.html#a9a069e2e4a86939843c9cd65c2ebfc1c',1,'UTMDomainDetail']]]
 ];

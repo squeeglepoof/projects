@@ -54,5 +54,5 @@ var searchData=
   ['ntypes',['NTYPES',['../class_u_t_m_modes.html#a598c653859ec4f8757e05817b3214591a6ae56b21a1a6ce489fff5db8f0b1c421',1,'UTMModes']]],
   ['number_5fover_5fcapacity',['number_over_capacity',['../class_link.html#a64114842baa9c0c1fe89249a08fac8fb',1,'Link']]],
   ['numnontypeelements',['numNonTypeElements',['../class_predator_prey_domain_parameters.html#a437c3230ce26ddc442bd09db763715e5',1,'PredatorPreyDomainParameters']]],
-  ['numtypes',['NUMTYPES',['../class_rover.html#ac16a1a2d685c21c323ed167b3c4f2444a4e912b4978dc9877b80b936929d251b3',1,'Rover::NUMTYPES()'],['../class_predator.html#a1c5cc24233e6289a059237fa2ee70f19afbc92fad87dfc9c0d135f1e5333df90f',1,'Predator::numTypes()']]]
+  ['numtypes',['numTypes',['../class_predator.html#a1c5cc24233e6289a059237fa2ee70f19afbc92fad87dfc9c0d135f1e5333df90f',1,'Predator::numTypes()'],['../class_rover.html#ac16a1a2d685c21c323ed167b3c4f2444a4e912b4978dc9877b80b936929d251b3',1,'Rover::NUMTYPES()']]]
 ];
