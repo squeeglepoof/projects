@@ -36,7 +36,7 @@
   </PostinstrumentEvent>
   <Binaries>
     <ProjBinary>
-      <Path>Debug\IROS2015.exe</Path>
+      <Path>Release\IROS2015.exe</Path>
       <ArgumentTimestamp>01/01/0001 00:00:00</ArgumentTimestamp>
       <Instrument>true</Instrument>
       <Sample>true</Sample>
