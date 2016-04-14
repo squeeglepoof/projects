@@ -40,6 +40,9 @@
 #include "../../../libraries/Domains/UTM/UTMDomainDetail.h"
 #include "../../../libraries/Domains/UTM/UTMDomainAbstract.h"
 
+using std::vector;
+
+
 /*void loopOverTypeHandling(){
     // TODO: DIRECTORY NAMING CONVENTION
     //std::string dirname = "stat_results/";

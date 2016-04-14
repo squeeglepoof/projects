@@ -88,12 +88,13 @@
     <ClInclude Include="..\..\..\libraries\Domains\UTM\Link.h" />
     <ClInclude Include="..\..\..\libraries\Domains\UTM\Sector.h" />
     <ClInclude Include="..\..\..\libraries\Domains\UTM\UAV.h" />
-    <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMAgentReward.h" />
+    <ClInclude Include="..\..\..\libraries\Domains\UTM\IAgentManager.h" />
     <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMDomainAbstract.h" />
     <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMDomainDetail.h" />
     <ClInclude Include="..\..\..\libraries\Domains\UTM\UTMModesAndFiles.h" />
     <ClInclude Include="..\..\..\libraries\Math\easymath.h" />
     <ClInclude Include="..\..\..\libraries\Math\MatrixTypes.h" />
+    <ClInclude Include="..\..\..\libraries\Math\XY.h" />
     <ClInclude Include="..\..\..\libraries\Multiagent\IMultiagentSystem.h" />
     <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentNE.h" />
     <ClInclude Include="..\..\..\libraries\Multiagent\MultiagentTypeNE.h" />
@@ -111,6 +112,7 @@
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeCrossweighted.h" />
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\NeuroEvoTypeWeighted.h" />
     <ClInclude Include="..\..\..\libraries\SingleAgent\NeuroEvo\TypeNeuroEvo.h" />
+    <ClInclude Include="..\..\..\libraries\STL\easystl.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
