@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="rags_integration" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/rags_integration" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/rags_integration" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="../../../../libraries/Domains/IDomainStateful.cpp" />
+		<Unit filename="../../../../libraries/Domains/IDomainStateful.h" />
+		<Unit filename="../../../../libraries/Domains/UTM/Fix.cpp" />
+		<Unit filename="../../../../libraries/Domains/UTM/Fix.h" />
+		<Unit filename="../../../../libraries/Domains/UTM/IAgentManager.cpp" />
+		<Unit filename="../../../../libraries/Domains/UTM/Link.cpp" />
+		<Unit filename="../../../../libraries/Domains/UTM/Link.h" />
+		<Unit filename="../../../../libraries/Domains/UTM/Sector.cpp" />
+		<Unit filename="../../../../libraries/Domains/UTM/Sector.h" />
+		<Unit filename="../../../../libraries/Domains/UTM/UAV.cpp" />
+		<Unit filename="../../../../libraries/Domains/UTM/UAV.h" />
+		<Unit filename="../../../../libraries/Domains/UTM/UTMAgentReward.h" />
+		<Unit filename="../../../../libraries/Domains/UTM/UTMDomainAbstract.cpp" />
+		<Unit filename="../../../../libraries/Domains/UTM/UTMDomainAbstract.h" />
+		<Unit filename="../../../../libraries/Domains/UTM/UTMDomainDetail.cpp" />
+		<Unit filename="../../../../libraries/Domains/UTM/UTMDomainDetail.h" />
+		<Unit filename="../../../../libraries/Domains/UTM/UTMModesAndFiles.cpp" />
+		<Unit filename="../../../../libraries/Domains/UTM/UTMModesAndFiles.h" />
+		<Unit filename="../../../../libraries/Math/MatrixTypes.cpp" />
+		<Unit filename="../../../../libraries/Math/MatrixTypes.h" />
+		<Unit filename="../../../../libraries/Math/easymath.cpp" />
+		<Unit filename="../../../../libraries/Math/easymath.h" />
+		<Unit filename="../../../../libraries/Multiagent/IMultiagentSystem.cpp" />
+		<Unit filename="../../../../libraries/Multiagent/IMultiagentSystem.h" />
+		<Unit filename="../../../../libraries/Multiagent/MultiagentNE.cpp" />
+		<Unit filename="../../../../libraries/Multiagent/MultiagentNE.h" />
+		<Unit filename="../../../../libraries/Multiagent/MultiagentTypeNE.cpp" />
+		<Unit filename="../../../../libraries/Multiagent/MultiagentTypeNE.h" />
+		<Unit filename="../../../../libraries/Planning/GridGraph.h" />
+		<Unit filename="../../../../libraries/Planning/LinkGraph.h" />
+		<Unit filename="../../../../libraries/Planning/RAGS.cpp" />
+		<Unit filename="../../../../libraries/Planning/RAGS.h" />
+		<Unit filename="../../../../libraries/Planning/SectorGraphManager.cpp" />
+		<Unit filename="../../../../libraries/Planning/SectorGraphManager.h" />
+		<Unit filename="../../../../libraries/Planning/TypeGraphManager.cpp" />
+		<Unit filename="../../../../libraries/Planning/TypeGraphManager.h" />
+		<Unit filename="../../../../libraries/Simulation/ISimulator.cpp" />
+		<Unit filename="../../../../libraries/Simulation/ISimulator.h" />
+		<Unit filename="../../../../libraries/Simulation/SimNE.cpp" />
+		<Unit filename="../../../../libraries/Simulation/SimNE.h" />
+		<Unit filename="../../../../libraries/Simulation/SimTypeNE.cpp" />
+		<Unit filename="../../../../libraries/Simulation/SimTypeNE.h" />
+		<Unit filename="../../../../libraries/SingleAgent/IAgent.cpp" />
+		<Unit filename="../../../../libraries/SingleAgent/IAgent.h" />
+		<Unit filename="../../../../libraries/SingleAgent/NeuralNet/NeuralNet.cpp" />
+		<Unit filename="../../../../libraries/SingleAgent/NeuralNet/NeuralNet.h" />
+		<Unit filename="../../../../libraries/SingleAgent/NeuralNet/TypeNeuralNet.h" />
+		<Unit filename="../../../../libraries/SingleAgent/NeuroEvo/NeuroEvo.cpp" />
+		<Unit filename="../../../../libraries/SingleAgent/NeuroEvo/NeuroEvo.h" />
+		<Unit filename="../../../../libraries/SingleAgent/NeuroEvo/NeuroEvoTypeCrossweighted.cpp" />
+		<Unit filename="../../../../libraries/SingleAgent/NeuroEvo/NeuroEvoTypeCrossweighted.h" />
+		<Unit filename="../../../../libraries/SingleAgent/NeuroEvo/NeuroEvoTypeWeighted.cpp" />
+		<Unit filename="../../../../libraries/SingleAgent/NeuroEvo/NeuroEvoTypeWeighted.h" />
+		<Unit filename="../../../../libraries/SingleAgent/NeuroEvo/TypeNeuroEvo.cpp" />
+		<Unit filename="../../../../libraries/SingleAgent/NeuroEvo/TypeNeuroEvo.h" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
