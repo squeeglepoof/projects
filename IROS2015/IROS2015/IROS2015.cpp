@@ -91,6 +91,30 @@ vector<int> consecutive(int a, int b) {
     return v;
 }
 
+void abstract_UTM_simulation(UTMModes* modes, int r) {
+    UTMDomainAbstract* domain = new UTMDomainAbstract(modes);
+
+    int n_inputs = domain->n_state_elements;        // # nn inputs
+    int n_outputs = domain->n_control_elements;     // # nn outputs
+    NeuroEvoParameters* NE_params;
+    NE_params = new NeuroEvoParameters(n_inputs, n_outputs);
+
+    MultiagentTypeNE* MAS;
+    int n_agents = domain->n_agents;
+    int n_types = domain->n_types;
+    MultiagentTypeNE::TypeHandling mode = MultiagentTypeNE::BLIND;
+    MAS = new MultiagentTypeNE(n_agents, NE_params, mode, n_types);
+
+    SimTypeNE sim(domain, MAS, MultiagentTypeNE::BLIND);
+    sim.runExperiment();
+
+    sim.outputMetricLog(MAS->type_file_name(), r);
+
+    delete domain;
+    delete NE_params;
+    delete MAS;
+}
+
 void loopOverDomainParameters(void modeChanger(UTMModes*, int val),
     int nparams, UTMModes* modes) {
     vector<int> vals = consecutive(0, nparams - 1);  // meant for use with enums
@@ -101,27 +125,7 @@ void loopOverDomainParameters(void modeChanger(UTMModes*, int val),
             // srand(1);
 
             modeChanger(modes, val);
-            UTMDomainAbstract* domain = new UTMDomainAbstract(modes);
-
-            int n_inputs = domain->n_state_elements;  // # nn inputs
-            int n_outputs = domain->n_control_elements;  // # nn outputs
-            NeuroEvoParameters* NE_params;
-            NE_params = new NeuroEvoParameters(n_inputs, n_outputs);
-
-            MultiagentTypeNE* MAS;
-            int n_agents = domain->n_agents;
-            int n_types = domain->n_types;
-            MultiagentTypeNE::TypeHandling mode = MultiagentTypeNE::BLIND;
-            MAS = new MultiagentTypeNE(n_agents, NE_params, mode, n_types);
-
-            SimTypeNE sim(domain, MAS, MultiagentTypeNE::BLIND);
-            sim.runExperiment();
-
-            sim.outputMetricLog(MAS->type_file_name(), r);
-
-            delete domain;
-            delete NE_params;
-            delete MAS;
+            abstract_UTM_simulation(modes,r);
         }
     }
 }
