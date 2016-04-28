@@ -8,3 +8,12 @@ The easiest, but hackiest way to use RAGS, would be to copy over the 'astar()' f
 To modify domain parameters:
 
 Look in the file UTMModesAndFiles.h. UTMModes has a constructor that sets the modes for the simulation. This is accessed in order to construct the domain and run the project.
+
+
+Visualizer:
+
+This is located in the Visualizer folder. To use it, run the viz.m Matlab script with the necessary data copied into the Visualizer folder. See viz.m for details.
+
+You must have python 2.7 (or just make the necessary syntax changes in viz.py for python 3) with pygame (http://www.pygame.org/download.shtml) and numpy installed.
+
+As long as python can be run from the Windows command prompt, it should work fine in Matlab assuming the above modules are installed.
